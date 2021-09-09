@@ -76,6 +76,7 @@ Widget::Widget(QWidget *parent) :
 #endif
 
 #if 0
+    //整个显示区域背景色
     QLinearGradient plotGradient;
     plotGradient.setStart(0,0);
     plotGradient.setFinalStop(400, 0);
@@ -84,7 +85,10 @@ Widget::Widget(QWidget *parent) :
     customPlot->setBackground(plotGradient);      // 设置背景颜色
 #endif
 
+
+
 #if 1
+    //坐标轴区域背景色
     QLinearGradient plotGradient;
     plotGradient.setStart(0,0);
     plotGradient.setFinalStop(800, 0);
