@@ -27,12 +27,14 @@ SOURCES += \
         main.cpp \
         widget.cpp \
     core_opengl/yuvopenglwidget.cpp \
-    core_opengl/nv12openglwidget.cpp
+    core_opengl/nv12openglwidget.cpp \
+    videorender.cpp
 
 HEADERS += \
         widget.h \
     core_opengl/yuvopenglwidget.h \
-    core_opengl/nv12openglwidget.h
+    core_opengl/nv12openglwidget.h \
+    videorender.h
 
 FORMS += \
         widget.ui

@@ -15,6 +15,7 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+#if 0
     yuvWidget = new YUVOpenGLWidget;
     nv12Widget = new NV12OpenGLWidget;
     yuvWidget->hide();
@@ -26,8 +27,9 @@ Widget::Widget(QWidget *parent) :
     connect(timerYuv420pFlush,SIGNAL(timeout()),this,SLOT(flushYuv420pData()));
     connect(timerYuvNV12Flush,SIGNAL(timeout()),this,SLOT(flushYuvNV12Data()));
 
+#endif
 
-
+    render = new VideoRender(this);
 }
 
 Widget::~Widget()
@@ -162,7 +164,8 @@ int simplest_yuv420_split(char *url, int w, int h,int num){
 void Widget::on_yuv420Btn_clicked()
 {
     initFrameYuv420p("/home/brian/work_dir/qt/pc_qt/yuvAndNv12Render/"YUV420P_URL,1280,720,1);
-    timerYuv420pFlush->start(50);
+    render->initFrameYuv420p("/home/brian/work_dir/qt/pc_qt/yuvAndNv12Render/"YUV420P_URL,1280,720,1);
+    //timerYuv420pFlush->start(50);
 }
 
 void Widget::on_nv12Btn_clicked()
