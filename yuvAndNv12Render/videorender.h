@@ -24,9 +24,11 @@ class VideoRender:public QObject
 public:
     VideoRender(QWidget *parent = 0);
     void initFrameYuv420p(char *url, int w, int h,int num);
-
+    void initFrameNV12(char *url, int w, int h,int num);
+    void cleanMemory();
 public slots:
     void flushYuv420pData();
+    void flushYuvNV12Data();
 private:
     YUVOpenGLWidget *yuvWidget;     //显示yuv数据的控件
     NV12OpenGLWidget *nv12Widget;   //显示nv12数据的控件

@@ -40,3 +40,6 @@ FORMS += \
         widget.ui
 
 DISTFILES +=
+
+RESOURCES += \
+    qss.qrc

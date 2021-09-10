@@ -56,7 +56,8 @@ SOURCES       = main.cpp \
 		widget.cpp \
 		core_opengl/yuvopenglwidget.cpp \
 		core_opengl/nv12openglwidget.cpp \
-		videorender.cpp moc_widget.cpp \
+		videorender.cpp qrc_qss.cpp \
+		moc_widget.cpp \
 		moc_yuvopenglwidget.cpp \
 		moc_nv12openglwidget.cpp \
 		moc_videorender.cpp
@@ -65,6 +66,7 @@ OBJECTS       = main.o \
 		yuvopenglwidget.o \
 		nv12openglwidget.o \
 		videorender.o \
+		qrc_qss.o \
 		moc_widget.o \
 		moc_yuvopenglwidget.o \
 		moc_nv12openglwidget.o \
@@ -474,7 +476,8 @@ Makefile: yuvAndNv12Render.pro ../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/linux-
 		../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/features/exceptions.prf \
 		../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/features/yacc.prf \
 		../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/features/lex.prf \
-		yuvAndNv12Render.pro
+		yuvAndNv12Render.pro \
+		qss.qrc
 	$(QMAKE) -o Makefile yuvAndNv12Render.pro
 ../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/features/spec_pre.prf:
 ../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/common/unix.conf:
@@ -670,6 +673,7 @@ Makefile: yuvAndNv12Render.pro ../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/linux-
 ../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/features/yacc.prf:
 ../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/features/lex.prf:
 yuvAndNv12Render.pro:
+qss.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile yuvAndNv12Render.pro
 
@@ -684,6 +688,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents qss.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt5.12.6/5.12.6/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents widget.h core_opengl/yuvopenglwidget.h core_opengl/nv12openglwidget.h videorender.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp widget.cpp core_opengl/yuvopenglwidget.cpp core_opengl/nv12openglwidget.cpp videorender.cpp $(DISTDIR)/
@@ -711,8 +716,14 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_qss.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_qss.cpp
+qrc_qss.cpp: qss.qrc \
+		../../../../Qt5.12.6/5.12.6/gcc_64/bin/rcc \
+		mystyle.qss
+	/home/brian/Qt5.12.6/5.12.6/gcc_64/bin/rcc -name qss qss.qrc -o qrc_qss.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
@@ -829,6 +840,7 @@ moc_widget.cpp: widget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QTimer \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qtimer.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qbasictimer.h \
+		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QFile \
 		core_opengl/yuvopenglwidget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QMutex \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtWidgets/QOpenGLWidget \
@@ -855,6 +867,7 @@ moc_widget.cpp: widget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtGui/qquaternion.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtGui/qgenericmatrix.h \
 		core_opengl/nv12openglwidget.h \
+		videorender.h \
 		moc_predefs.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/bin/moc
 	/home/brian/Qt5.12.6/5.12.6/gcc_64/bin/moc $(DEFINES) --include /home/brian/work_dir/qt/QWidgetDemo/yuvAndNv12Render/moc_predefs.h -I/home/brian/Qt5.12.6/5.12.6/gcc_64/mkspecs/linux-g++ -I/home/brian/work_dir/qt/QWidgetDemo/yuvAndNv12Render -I/home/brian/Qt5.12.6/5.12.6/gcc_64/include -I/home/brian/Qt5.12.6/5.12.6/gcc_64/include/QtOpenGL -I/home/brian/Qt5.12.6/5.12.6/gcc_64/include/QtWidgets -I/home/brian/Qt5.12.6/5.12.6/gcc_64/include/QtGui -I/home/brian/Qt5.12.6/5.12.6/gcc_64/include/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include widget.h -o moc_widget.cpp
@@ -1174,6 +1187,9 @@ moc_videorender.cpp: videorender.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QTimer \
+		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qtimer.h \
+		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qbasictimer.h \
 		core_opengl/yuvopenglwidget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QMutex \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtWidgets/QOpenGLWidget \
@@ -1274,7 +1290,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -1385,6 +1401,7 @@ main.o: main.cpp widget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QTimer \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qtimer.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qbasictimer.h \
+		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QFile \
 		core_opengl/yuvopenglwidget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QMutex \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtWidgets/QOpenGLWidget \
@@ -1411,6 +1428,7 @@ main.o: main.cpp widget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtGui/qquaternion.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtGui/qgenericmatrix.h \
 		core_opengl/nv12openglwidget.h \
+		videorender.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtWidgets/qapplication.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1527,6 +1545,7 @@ widget.o: widget.cpp widget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QTimer \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qtimer.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qbasictimer.h \
+		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QFile \
 		core_opengl/yuvopenglwidget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QMutex \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtWidgets/QOpenGLWidget \
@@ -1553,6 +1572,7 @@ widget.o: widget.cpp widget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtGui/qquaternion.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtGui/qgenericmatrix.h \
 		core_opengl/nv12openglwidget.h \
+		videorender.h \
 		ui_widget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QVariant \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtWidgets/QApplication \
@@ -1884,6 +1904,9 @@ videorender.o: videorender.cpp videorender.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QTimer \
+		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qtimer.h \
+		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/qbasictimer.h \
 		core_opengl/yuvopenglwidget.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtCore/QMutex \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtWidgets/QOpenGLWidget \
@@ -1964,6 +1987,9 @@ videorender.o: videorender.cpp videorender.h \
 		../../../../Qt5.12.6/5.12.6/gcc_64/include/QtGui/qgenericmatrix.h \
 		core_opengl/nv12openglwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o videorender.o videorender.cpp
+
+qrc_qss.o: qrc_qss.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qss.o qrc_qss.cpp
 
 moc_widget.o: moc_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widget.o moc_widget.cpp
