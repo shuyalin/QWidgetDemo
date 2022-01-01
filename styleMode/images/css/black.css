@@ -1,0 +1,58 @@
+
+/*QWidget#widget_Top{
+	background: qlineargradient(spread:padding-bottom, x1:0, y1:0, x2:0, y2:1, stop:0 #3A3A3A, stop:1 #494242);
+}*/
+QStackedWidget{
+    background: qlineargradient(spread:padding-bottom, x1:0, y1:0, x2:0, y2:1, stop:0 #4B87AF, stop:1 #88C7D7);
+}
+QWidget#widgetLeft{
+    background: qlineargradient(spread:padding-bottom, x1:0, y1:0, x2:0, y2:1, stop:0 #184CA5, stop:1 #39AAD8);
+}
+QWidget#Widget{
+	background: qlineargradient(spread:padding-bottom, x1:0, y1:0, x2:0, y2:1, stop:0 #3A3A3A, stop:1 #494242);
+}
+QPushButton{
+    background:#18CCA5;
+    border-radius:10px;
+}
+QRadioButton#radioButton1{
+    border:1px solid #256020;
+    background:#25A060;
+    border-radius:4px;
+    font-size:22px;
+}
+QRadioButton#radioButton1::indicator{
+    width:30px;
+    height:30px;
+    background:#A5A0A0;
+    border-radius:15px;
+    margin-left:10px;
+}
+QRadioButton#radioButton2{
+    border:1px solid #256020;
+    background:#25A060;
+    border-radius:4px;
+    font-size:22px;
+}
+QRadioButton#radioButton2::indicator{
+    width:30px;
+    height:30px;
+    background-image:url(":/images/images/bottom/add.png");
+    margin-left:10px;
+}
+/*
+QLabel#label_Bottom_Div
+{
+	background-color:#413E3E;
+}
+
+QWidget#widget_set_bottom{
+	background: qlineargradient(spread:padding-bottom, x1:0, y1:0, x2:0, y2:1, stop:0 #7E97B0, stop:1 #2D5188);
+}
+QWidget#widget_Mid{
+	background: qlineargradient(spread:padding-bottom, x1:0, y1:0, x2:0, y2:1, stop:0 #4B87AF, stop:1 #88C7D7);
+}
+QToolButton#tbnMenuClose{
+	border-image:url(:/images/close.png);
+}
+*/

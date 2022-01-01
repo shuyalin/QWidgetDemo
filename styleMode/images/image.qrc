@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>bottom/add.png</file>
+        <file>bottom/control.png</file>
+        <file>bottom/music.png</file>
+        <file>bottom/night.png</file>
+        <file>bottom/reset.png</file>
+        <file>bottom/statistics.png</file>
+        <file>bottom/video.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>css/black.css</file>
+    </qresource>
+</RCC>

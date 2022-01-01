@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/bottom/add.png</file>
+        <file>images/bottom/control.png</file>
+        <file>images/bottom/music.png</file>
+        <file>images/bottom/night.png</file>
+        <file>images/bottom/reset.png</file>
+        <file>images/bottom/statistics.png</file>
+        <file>images/bottom/video.png</file>
+        <file>images/css/black.css</file>
+        <file>images/css/style.css</file>
+    </qresource>
+</RCC>
