@@ -18,6 +18,9 @@ INCLUDEPATH += ./MainPage/
 INCLUDEPATH += ./MainPage/RadioPage/
 INCLUDEPATH += ./MainPage/BluePage/
 INCLUDEPATH += ./MainPage/UsbPage/
+INCLUDEPATH += ./MainPage/UsbPage/UsbMusicPage/
+INCLUDEPATH += ./MainPage/UsbPage/UsbPhotoPage/
+INCLUDEPATH += ./MainPage/UsbPage/UsbVideoPage/
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the

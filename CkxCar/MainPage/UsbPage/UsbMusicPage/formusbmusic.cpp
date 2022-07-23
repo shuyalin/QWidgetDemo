@@ -6,6 +6,7 @@ FormUsbMusic::FormUsbMusic(QWidget *parent) :
     ui(new Ui::FormUsbMusic)
 {
     ui->setupUi(this);
+
 }
 
 FormUsbMusic::~FormUsbMusic()

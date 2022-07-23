@@ -2,6 +2,7 @@
 #define FORMUSBPAGE_H
 
 #include <QWidget>
+#include <QListWidgetItem>
 
 namespace Ui {
 class FormUsbPage;
@@ -14,6 +15,13 @@ class FormUsbPage : public QWidget
 public:
     explicit FormUsbPage(QWidget *parent = 0);
     ~FormUsbPage();
+
+    void initPage();
+    void initSlot();
+
+public slots:
+    void playMusicPage(QListWidgetItem* item);
+
 
 private:
     Ui::FormUsbPage *ui;
