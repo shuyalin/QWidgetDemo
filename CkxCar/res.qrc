@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>images/ViewPaperWidgetUSBNormal.png</file>
+        <file>images/ViewPaperWidgetSettingNormal.png</file>
+        <file>images/ViewPaperWidgetSDNormal.png</file>
+        <file>images/ViewPaperWidgetRadioNormal.png</file>
+        <file>images/ViewPaperWidgetPanelNormal.png</file>
+        <file>images/ViewPaperWidgetNaviNormal.png</file>
+        <file>images/ViewPaperWidgetLinkNormal.png</file>
+        <file>images/ViewPaperWidgetHiCarNormal.png</file>
+        <file>images/ViewPaperWidgetECLinkNormal.png</file>
+        <file>images/ViewPaperWidgetConditionerNormal.png</file>
+    </qresource>
+</RCC>
