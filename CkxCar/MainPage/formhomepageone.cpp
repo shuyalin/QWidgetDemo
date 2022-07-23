@@ -27,6 +27,7 @@ FormHomePageOne::FormHomePageOne(QWidget *parent) :
 
     widget->setBtnName(0,"radio");
     widget->setBtnName(1,"blue");
+    widget->setBtnName(2,"usb");
     ui->listWidget->setItemWidget(item,widget);
     ui->listWidget->setItemWidget(item1,widget1);
 
@@ -50,5 +51,7 @@ void FormHomePageOne::onClick(QString name)
         emit AppEvent::instance()->pageChange(AppEvent::Radio);
     }else if(name == "blue"){
         emit AppEvent::instance()->pageChange(AppEvent::Bluetooth);
+    }else if(name == "usb"){
+        emit AppEvent::instance()->pageChange(AppEvent::Usb);
     }
 }

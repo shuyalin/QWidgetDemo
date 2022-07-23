@@ -14,7 +14,8 @@ public:
         ViewPaper0 = 2,
         ViewPaper1 = 3,
         Radio = 4,
-        Bluetooth = 5
+        Bluetooth = 5,
+        Usb = 6
     };
 
     AppEvent(QObject *parent = 0);

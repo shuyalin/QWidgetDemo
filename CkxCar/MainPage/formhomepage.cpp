@@ -17,7 +17,7 @@ FormHomePage::~FormHomePage()
 }
 void FormHomePage::initPage()
 {
-    btns << ui->btnRadio << ui->btnBlue;
+    btns << ui->btnRadio << ui->btnBlue << ui->btnUsb;
     foreach (auto item, btns) {
         connect(item,SIGNAL(clicked(bool)),this,SLOT(btnClick()));
     }
@@ -25,11 +25,14 @@ void FormHomePage::initPage()
 
 void FormHomePage::btnClick()
 {
+    qDebug()<<"ddddddddddddddddddddd";
     QToolButton *btn = static_cast<QToolButton*>(sender());
     if(btn == ui->btnRadio){
-        qDebug()<<"11111111111111";
         emit AppEvent::instance()->pageChange(AppEvent::Radio);
     }else if(btn == ui->btnBlue){
         emit AppEvent::instance()->pageChange(AppEvent::Bluetooth);
+    }else if(btn == ui->btnUsb){
+        qDebug()<<"11111111111111bbbbbbbbbb";
+        emit AppEvent::instance()->pageChange(AppEvent::Usb);
     }
 }
