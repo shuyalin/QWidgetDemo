@@ -25,14 +25,9 @@ void FormHomePage::initPage()
 
 void FormHomePage::btnClick()
 {
-    qDebug()<<"ddddddddddddddddddddd";
     QToolButton *btn = static_cast<QToolButton*>(sender());
     if(btn == ui->btnRadio){
-        emit AppEvent::instance()->pageChange(AppEvent::Radio);
     }else if(btn == ui->btnBlue){
-        emit AppEvent::instance()->pageChange(AppEvent::Bluetooth);
     }else if(btn == ui->btnUsb){
-        qDebug()<<"11111111111111bbbbbbbbbb";
-        emit AppEvent::instance()->pageChange(AppEvent::Usb);
     }
 }

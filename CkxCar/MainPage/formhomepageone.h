@@ -2,6 +2,7 @@
 #define FORMHOMEPAGEONE_H
 
 #include <QWidget>
+#include "appevent.h"
 
 namespace Ui {
 class FormHomePageOne;

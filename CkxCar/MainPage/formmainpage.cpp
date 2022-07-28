@@ -5,7 +5,9 @@
 #include "formblue.h"
 #include "formusbpage.h"
 #include "formhomepageone.h"
+#include "uihelper.h"
 #include <QDebug>
+
 FormMainPage::FormMainPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FormMainPage)
@@ -24,32 +26,33 @@ void FormMainPage::initForm()
     FormRadio *radio = new FormRadio;
     FormBlue *blue = new FormBlue;
     FormUsbPage *usb = new FormUsbPage;
-    FormHomePageOne *homePageOne = new FormHomePageOne;
-    //FormHomePage *homePage = new FormHomePage;
+    FormHomePageOne *pageOne = new FormHomePageOne;
     ui->stackedWidget->addWidget(radio);
     ui->stackedWidget->addWidget(blue);
     ui->stackedWidget->addWidget(usb);
-    ui->stackedWidget->addWidget(homePageOne);
-    ui->stackedWidget->setCurrentWidget(homePageOne);
+    ui->stackedWidget->addWidget(pageOne);
 
-    connect(AppEvent::instance(),SIGNAL(pageChange(AppEvent::PageType)),this,SLOT(changePage(AppEvent::PageType)));
+    ui->stackedWidget->setCurrentIndex(3);
+    connect(radio,SIGNAL(quitPage()),this,SLOT(backHomePage()));
+    connect(blue,SIGNAL(quitPage()),this,SLOT(backHomePage()));
+    connect(usb,SIGNAL(quitPage()),this,SLOT(backHomePage()));
+    connect(AppEvent::instance(),SIGNAL(pageChange(AppEvent::PageType)),this,SLOT(pageTypeChange(AppEvent::PageType)));
 }
-void FormMainPage::changePage(AppEvent::PageType pageType)
+void FormMainPage::backHomePage()
 {
-    if(AppEvent::Radio == pageType){
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void FormMainPage::pageTypeChange(AppEvent::PageType destPage)
+{
+    if(AppEvent::Radio == destPage){
         ui->stackedWidget->setCurrentIndex(0);
-    }else if(AppEvent::Bluetooth == pageType){
+    }else if(AppEvent::Bluetooth == destPage){
         ui->stackedWidget->setCurrentIndex(1);
-    }else if(AppEvent::Usb == pageType){
+    }else if(AppEvent::Usb == destPage){
+        qDebug()<<"VVVVVVVVVVVVVVVVVVVVV";
         ui->stackedWidget->setCurrentIndex(2);
-        qDebug()<<"UUUUUUUUUUUUUUUUUUSB";
-    }else if(AppEvent::Home == pageType){
+    }else if(AppEvent::Home == destPage){
         ui->stackedWidget->setCurrentIndex(3);
     }
-}
-
-
-void FormMainPage::on_btnBack_clicked()
-{
-    emit AppEvent::instance()->pageChange(AppEvent::Home);
 }

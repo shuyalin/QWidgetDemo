@@ -2,7 +2,7 @@
 #define FORMBLUE_H
 
 #include <QWidget>
-
+#include "appevent.h"
 namespace Ui {
 class FormBlue;
 }
@@ -14,6 +14,10 @@ class FormBlue : public QWidget
 public:
     explicit FormBlue(QWidget *parent = 0);
     ~FormBlue();
+
+signals:
+    void quitPage();
+
 
 private:
     Ui::FormBlue *ui;

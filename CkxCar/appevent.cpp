@@ -20,5 +20,12 @@ AppEvent *AppEvent::instance()
 AppEvent::AppEvent(QObject *parent) : QObject(parent)
 {
     qRegisterMetaType<AppEvent::PageType>("AppEvent::PageType");
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(pushData()));
+    timer->start(1000);
 }
 
+void AppEvent::pushData()
+{
+    emit putVal(QString::number(qrand()%10));
+}

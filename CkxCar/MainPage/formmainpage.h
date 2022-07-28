@@ -2,11 +2,16 @@
 #define FORMMAINPAGE_H
 
 #include <QWidget>
+#include <QEvent>
 #include "appevent.h"
+
 namespace Ui {
 class FormMainPage;
 }
-
+class FormRadio;
+class FormBlue;
+class FormUsbPage;
+class FormHomePageOne;
 class FormMainPage : public QWidget
 {
     Q_OBJECT
@@ -17,11 +22,8 @@ public:
     void initForm();
 
 public slots:
-    void changePage(AppEvent::PageType pageType);
-
-private slots:
-    void on_btnBack_clicked();
-
+    void pageTypeChange(AppEvent::PageType destPage);
+    void backHomePage();
 private:
     Ui::FormMainPage *ui;
 };

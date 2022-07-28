@@ -21,6 +21,8 @@ INCLUDEPATH += ./MainPage/UsbPage/
 INCLUDEPATH += ./MainPage/UsbPage/UsbMusicPage/
 INCLUDEPATH += ./MainPage/UsbPage/UsbPhotoPage/
 INCLUDEPATH += ./MainPage/UsbPage/UsbVideoPage/
+INCLUDEPATH += ./MainPage/FloatingPage/
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -44,7 +46,8 @@ SOURCES += \
     MainPage/UsbPage/formusbpage.cpp \
     MainPage/UsbPage/UsbMusicPage/formusbmusic.cpp \
     MainPage/UsbPage/UsbPhotoPage/formusbphoto.cpp \
-    MainPage/UsbPage/UsbVideoPage/formusbvideo.cpp
+    MainPage/UsbPage/UsbVideoPage/formusbvideo.cpp \
+    uihelper.cpp
 
 HEADERS += \
     MainPage/formmainpage.h \
@@ -56,7 +59,8 @@ HEADERS += \
     MainPage/UsbPage/formusbpage.h \
     MainPage/UsbPage/UsbMusicPage/formusbmusic.h \
     MainPage/UsbPage/UsbPhotoPage/formusbphoto.h \
-    MainPage/UsbPage/UsbVideoPage/formusbvideo.h
+    MainPage/UsbPage/UsbVideoPage/formusbvideo.h \
+    uihelper.h
 
 FORMS += \
     MainPage/formmainpage.ui \

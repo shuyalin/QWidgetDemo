@@ -2,7 +2,7 @@
 #include "ui_formhomepageone.h"
 #include "customlistitem.h"
 #include <QListWidgetItem>
-#include "appevent.h"
+#include <QDebug>
 FormHomePageOne::FormHomePageOne(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FormHomePageOne)
@@ -14,9 +14,9 @@ FormHomePageOne::FormHomePageOne(QWidget *parent) :
     item1->setSizeHint(QSize(1024,150));
     customListItem *widget = new customListItem(ui->listWidget);
     customListItem *widget1 = new customListItem(ui->listWidget);
-    widget->setBtnText(0,"000");
-    widget->setBtnText(1,"111");
-    widget->setBtnText(2,"222");
+    widget->setBtnText(0,"Radio");
+    widget->setBtnText(1,"Blutooth");
+    widget->setBtnText(2,"Usb");
     widget->setBtnText(3,"333");
     widget->setBtnText(4,"444");
     widget1->setBtnText(0,"aaa");
@@ -48,10 +48,11 @@ FormHomePageOne::~FormHomePageOne()
 void FormHomePageOne::onClick(QString name)
 {
     if(name == "radio"){
-        emit AppEvent::instance()->pageChange(AppEvent::Radio);
+        qDebug()<<"qqqqqqqqqqqqqqqqqqqqq";
+        AppEvent::instance()->pageChange(AppEvent::Radio);
     }else if(name == "blue"){
-        emit AppEvent::instance()->pageChange(AppEvent::Bluetooth);
+        AppEvent::instance()->pageChange(AppEvent::Bluetooth);
     }else if(name == "usb"){
-        emit AppEvent::instance()->pageChange(AppEvent::Usb);
+        AppEvent::instance()->pageChange(AppEvent::Usb);
     }
 }
