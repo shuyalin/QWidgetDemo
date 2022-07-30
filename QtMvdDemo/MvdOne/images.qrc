@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/MultimediaListViewItemPress.png</file>
+        <file>images/MultimediaListViewRules.png</file>
+    </qresource>
+</RCC>

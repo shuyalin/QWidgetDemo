@@ -57,7 +57,8 @@ SOURCES       = main.cpp \
 		AutoConnect.cpp \
 		MultimediaListView.cpp \
 		CustomItemDelegate.cpp \
-		CustomScrollBar.cpp moc_widget.cpp \
+		CustomScrollBar.cpp qrc_images.cpp \
+		moc_widget.cpp \
 		moc_CustomListView.cpp \
 		moc_MultimediaListView.cpp \
 		moc_CustomItemDelegate.cpp \
@@ -69,6 +70,7 @@ OBJECTS       = main.o \
 		MultimediaListView.o \
 		CustomItemDelegate.o \
 		CustomScrollBar.o \
+		qrc_images.o \
 		moc_widget.o \
 		moc_CustomListView.o \
 		moc_MultimediaListView.o \
@@ -456,6 +458,7 @@ Makefile: MvdOne.pro /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf 
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf \
 		MvdOne.pro \
+		images.qrc \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/lib/libQt5Widgets.prl \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/lib/libQt5Gui.prl \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/lib/libQt5Core.prl
@@ -640,6 +643,7 @@ Makefile: MvdOne.pro /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf 
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf:
 MvdOne.pro:
+images.qrc:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/lib/libQt5Widgets.prl:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/lib/libQt5Gui.prl:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/lib/libQt5Core.prl:
@@ -657,6 +661,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents images.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents widget.h CustomListView.h AutoConnect.h MultimediaListView.h CustomItemDelegate.h CustomScrollBar.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp widget.cpp CustomListView.cpp AutoConnect.cpp MultimediaListView.cpp CustomItemDelegate.cpp CustomScrollBar.cpp $(DISTDIR)/
@@ -684,8 +689,15 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_images.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_images.cpp
+qrc_images.cpp: images.qrc \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/rcc \
+		images/MultimediaListViewRules.png \
+		images/MultimediaListViewItemPress.png
+	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/rcc -name images images.qrc -o qrc_images.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
@@ -795,6 +807,28 @@ moc_widget.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		MultimediaListView.h \
+		CustomListView.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
 		widget.h \
 		moc_predefs.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc
@@ -1292,7 +1326,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -1397,6 +1431,28 @@ main.o: main.cpp widget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		MultimediaListView.h \
+		CustomListView.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1507,11 +1563,32 @@ widget.o: widget.cpp widget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		MultimediaListView.h \
+		CustomListView.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
 		ui_widget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QVariant \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QAction \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qaction.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qactiongroup.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
@@ -1523,23 +1600,7 @@ widget.o: widget.cpp widget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QButtonGroup \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qbuttongroup.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QHeaderView \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qheaderview.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qheaderview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o widget.cpp
 
 CustomListView.o: CustomListView.cpp CustomListView.h \
@@ -1860,7 +1921,9 @@ MultimediaListView.o: MultimediaListView.cpp MultimediaListView.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QFontMetrics \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QFile \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPixmap
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPixmap \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QVariant \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MultimediaListView.o MultimediaListView.cpp
 
 CustomItemDelegate.o: CustomItemDelegate.cpp CustomItemDelegate.h \
@@ -2091,6 +2154,9 @@ CustomScrollBar.o: CustomScrollBar.cpp CustomScrollBar.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CustomScrollBar.o CustomScrollBar.cpp
+
+qrc_images.o: qrc_images.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp
 
 moc_widget.o: moc_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widget.o moc_widget.cpp

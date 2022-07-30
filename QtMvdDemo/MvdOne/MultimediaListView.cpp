@@ -206,11 +206,11 @@ MultimediaVariant::~MultimediaVariant()
 MultimediaDelegate::MultimediaDelegate(QObject *parent)
     : CustomItemDelegate(parent)
 {
-    QString path(":/Images/MultimediaListViewRules.png");
+    QString path(":/images/MultimediaListViewRules.png");
     if (QFile::exists(path)) {
         m_Rules.reset(new QPixmap(path));
     }
-    path = QString(":/Images/MultimediaListViewItemPress.png");
+    path = QString(":/images/MultimediaListViewItemPress.png");
     if (QFile::exists(path)) {
         m_Press.reset(new QPixmap(path));
     }
