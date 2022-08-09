@@ -75,14 +75,13 @@ void MultimediaListView::clearListView()
 void MultimediaListView::appendListView(QString path)
 {
     static int ii = 0;
-    //QStandardItem* root = m_Private->m_StandardItemModel->invisibleRootItem();
+    QStandardItem* root = m_Private->m_StandardItemModel->invisibleRootItem();
     QStandardItem* item = new QStandardItem();
     item->setSizeHint(QSize((531)  * 1.28, 60 * 1.25));
     MultimediaVariant variant;
     variant.m_Text = path;
     item->setData(qVariantFromValue(variant), Qt::DisplayRole);
-    //qDebug()<<"11111111111111 "<<root->rowCount();
-    //root->setChild(root->rowCount(), 0, item);
+    root->setChild(root->rowCount(), 0, item);
     m_Private->m_StandardItemModel->setItem(ii,0,item);
     ii++;
 }
@@ -222,12 +221,13 @@ MultimediaDelegate::~MultimediaDelegate()
 
 void MultimediaDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    painter->setFont(QFont(QString(), 20 * 1.28));
     if (!m_Rules.isNull()) {
         painter->drawPixmap(0, option.rect.y() + option.rect.height() - 2, *m_Rules);
     }
     MultimediaVariant variant = qvariant_cast<MultimediaVariant>(index.data(Qt::DisplayRole));
     QString text = QString::number(index.row() + 1) + QString(". ") + variant.m_Text;
-    QRect textRect = option.rect.adjusted(75 * 1.28, 0, -75 * 1.28, 0);
+    QRect textRect = option.rect.adjusted(200 * 1.28, 0, -75 * 1.28, 0);
     QFontMetrics fontMetrics(painter->font());
     text = fontMetrics.elidedText(text, Qt::ElideRight, textRect.width());
     if (m_CurrentIndex == index) {

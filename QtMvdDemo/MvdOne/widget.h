@@ -15,6 +15,9 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+public slots:
+    void onListViewItemRelease(const int val);
+
 private:
     Ui::Widget *ui;
     MultimediaListView *view;
