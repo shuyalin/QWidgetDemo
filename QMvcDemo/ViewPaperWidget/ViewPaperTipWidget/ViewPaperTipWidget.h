@@ -1,7 +1,6 @@
 #ifndef VIEWPAPERTipWidget_H
 #define VIEWPAPERTipWidget_H
 
-#include "BusinessLogic/Widget.h"
 #include <QWidget>
 
 class ViewPaperTipWidgetPrivate;
@@ -17,8 +16,6 @@ protected:
     void styleChange();
     void resizeEvent(QResizeEvent* event);
     void paintEvent(QPaintEvent* event);
-protected slots:
-    void onWidgetTypeChange(const Widget::Type destinationType, const Widget::Type requestType, const QString &status);
 private:
     Q_DECLARE_PRIVATE(ViewPaperTipWidget)
     ViewPaperTipWidgetPrivate* const d_ptr;

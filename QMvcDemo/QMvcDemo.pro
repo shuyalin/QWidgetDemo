@@ -25,10 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        widget.cpp
+        widget.cpp \
+    ViewPaperWidget/ViewPaperWidget.cpp \
+    ViewPaperWidget/ViewPaperTipWidget/ViewPaperTipWidget.cpp \
+    CustomItemDelegate.cpp \
+    uihelper.cpp \
+    AutoConnect/AutoConnect.cpp
 
 HEADERS += \
-        widget.h
+        widget.h \
+    ViewPaperWidget/ViewPaperWidget.h \
+    ViewPaperWidget/ViewPaperTipWidget/ViewPaperTipWidget.h \
+    CustomItemDelegate.h \
+    uihelper.h \
+    AutoConnect/AutoConnect.h
 
 FORMS += \
         widget.ui

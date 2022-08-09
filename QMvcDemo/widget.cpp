@@ -6,6 +6,8 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    m_ViewPaperWidget = new ViewPaperWidget(this);
+    m_ViewPaperWidget->show();
 }
 
 Widget::~Widget()

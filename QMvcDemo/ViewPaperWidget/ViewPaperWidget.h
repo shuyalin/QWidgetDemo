@@ -1,13 +1,14 @@
 #ifndef VIEWPAPERWIDGET_H
 #define VIEWPAPERWIDGET_H
 
-#include "BusinessLogic/Widget.h"
 #include "CustomItemDelegate.h"
 #include <QListView>
 
+
+
 class ViewPaperWidgetPrivate;
 class ViewPaperWidget
-        : private QListView
+        : public QListView
 {
     Q_OBJECT
     Q_DISABLE_COPY(ViewPaperWidget)
@@ -21,10 +22,7 @@ protected:
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
-protected slots:
-    void onWidgetTypeChange(const Widget::Type destinationType, const Widget::Type requestType, const QString &status);
 private slots:
-    void onFinished();
     void onButtonRelease(const unsigned int index);
 private:
     void setHorizontalOffset(int value);

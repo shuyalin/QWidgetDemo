@@ -1,5 +1,4 @@
 #include "CustomItemDelegate.h"
-#include "UserInterfaceUtility.h"
 #include <QPainter>
 #include <QEvent>
 
