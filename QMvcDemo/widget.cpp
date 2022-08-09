@@ -6,11 +6,17 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    m_ViewPaperWidget = new ViewPaperWidget(this);
-    m_ViewPaperWidget->show();
+    m_ViewPaperWidget = new ViewPaperWidget;
+    ui->stackedWidget->addWidget(m_ViewPaperWidget);
+    ui->stackedWidget->setCurrentIndex(0);
+    connect(m_ViewPaperWidget,SIGNAL(pushStr(const QString&)),this,SLOT(showText(const QString &)));
 }
 
 Widget::~Widget()
 {
     delete ui;
+}
+void Widget::showText(const QString &text)
+{
+    ui->label->setText(text);
 }

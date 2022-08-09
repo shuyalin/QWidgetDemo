@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>ViewPaperTipWidgetInvisible.png</file>
+        <file>ViewPaperTipWidgetVisible.png</file>
+        <file>ViewPaperWidgetAssistNormal.png</file>
+        <file>ViewPaperWidgetAssistPress.png</file>
+        <file>ViewPaperWidgetAUXNormal.png</file>
+        <file>ViewPaperWidgetAUXPress.png</file>
+        <file>ViewPaperWidgetBluetoothNormal.png</file>
+        <file>ViewPaperWidgetBluetoothPress.png</file>
+        <file>ViewPaperWidgetCameraNormal.png</file>
+        <file>ViewPaperWidgetCameraPress.png</file>
+        <file>ViewPaperWidgetCarDotorNormal.png</file>
+        <file>ViewPaperWidgetCarDotorPress.png</file>
+        <file>ViewPaperWidgetConditionerNormal.png</file>
+        <file>ViewPaperWidgetConditionerPress.png</file>
+        <file>ViewPaperWidgetECLinkNormal.png</file>
+        <file>ViewPaperWidgetECLinkPress.png</file>
+        <file>ViewPaperWidgetHiCarNormal.png</file>
+        <file>ViewPaperWidgetHiCarPress.png</file>
+        <file>ViewPaperWidgetLinkNormal.png</file>
+        <file>ViewPaperWidgetLinkPress.png</file>
+        <file>ViewPaperWidgetNaviNormal.png</file>
+        <file>ViewPaperWidgetNaviPress.png</file>
+        <file>ViewPaperWidgetPanelNormal.png</file>
+        <file>ViewPaperWidgetPanelPress.png</file>
+        <file>ViewPaperWidgetRadioNormal.png</file>
+        <file>ViewPaperWidgetRadioPress.png</file>
+        <file>ViewPaperWidgetSDNormal.png</file>
+        <file>ViewPaperWidgetSDPress.png</file>
+        <file>ViewPaperWidgetSettingNormal.png</file>
+        <file>ViewPaperWidgetSettingPress.png</file>
+        <file>ViewPaperWidgetUSBNormal.png</file>
+        <file>ViewPaperWidgetUSBPress.png</file>
+    </qresource>
+</RCC>

@@ -16,6 +16,8 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+public slots:
+    void showText(const QString &text);
 private:
     Ui::Widget *ui;
     ViewPaperWidget* m_ViewPaperWidget;

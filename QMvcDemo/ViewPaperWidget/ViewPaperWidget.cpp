@@ -224,15 +224,20 @@ void ViewPaperWidget::mouseReleaseEvent(QMouseEvent *event)
                         d->m_PropertyAnimation.setEndValue(width+width);
                         d->m_CurrentViewPapger = 2;
                     } else if (1 == d->m_CurrentViewPapger) {
+                        d->m_PropertyAnimation.setEndValue(width+width);
+                        d->m_CurrentViewPapger = 2;
+                    }else{
                         d->m_PropertyAnimation.setEndValue(width);
                         d->m_CurrentViewPapger = 1;
+                        d->m_Finish = false;
+                        d->m_PropertyAnimation.start();
                     }
                     d->m_Finish = false;
                     d->m_PropertyAnimation.start();
                 } else if (offset > (width - distance)) {
                     d->m_PropertyAnimation.setStartValue(horizontalOffset());
-                    d->m_PropertyAnimation.setEndValue(width+width);
-                    d->m_CurrentViewPapger = 2;
+                    d->m_PropertyAnimation.setEndValue(width);
+                    d->m_CurrentViewPapger = 1;
                     d->m_Finish = false;
                     d->m_PropertyAnimation.start();
                 }
@@ -436,13 +441,13 @@ void ViewPaperWidgetPrivate::initializeBasic()
     data.m_Press = QString(":/Images/ViewPaperWidgetRadioPress.png");
     m_MapType.insert(m_MapType.size(), data);
 
-#ifdef ENABLE_BT
+//#ifdef ENABLE_BT
     data.m_Type = UiHelper::T_Bluetooth;
     data.m_Title = QString("Bluetooth");
     data.m_Normal = QString(":/Images/ViewPaperWidgetBluetoothNormal.png");
     data.m_Press = QString(":/Images/ViewPaperWidgetBluetoothPress.png");
     m_MapType.insert(m_MapType.size(), data);
-#endif
+//#endif
 
 #ifdef ENABLE_SD
     data.m_Type = Widget::T_SDDisk;
@@ -452,13 +457,19 @@ void ViewPaperWidgetPrivate::initializeBasic()
     m_MapType.insert(m_MapType.size(), data);
 #endif
 
-#ifdef ENABLE_USB
-    data.m_Type = Widget::T_USBDisk;
+//#ifdef ENABLE_USB
+    data.m_Type = UiHelper::T_USBDisk;
     data.m_Title = QString("USB");
     data.m_Normal = QString(":/Images/ViewPaperWidgetUSBNormal.png");
     data.m_Press = QString(":/Images/ViewPaperWidgetUSBPress.png");
     m_MapType.insert(m_MapType.size(), data);
-#endif
+//#endif
+
+    data.m_Type = UiHelper::T_Link;
+    data.m_Title = SourceString::ECLink;
+    data.m_Normal = QString(":/Images/ViewPaperWidgetECLinkNormal.png");
+    data.m_Press = QString(":/Images/ViewPaperWidgetECLinkPress.png");
+    m_MapType.insert(m_MapType.size(), data);
 
 #ifdef ENABLE_LINK
     qDebug() << __PRETTY_FUNCTION__ <<"line:"<< __LINE__<<"getCarLinkType :"<<SettingPersistent::getCarLinkType();
@@ -495,8 +506,8 @@ void ViewPaperWidgetPrivate::initializeBasic()
     m_MapType.insert(m_MapType.size(), data);
 #endif
 
-#ifdef ENABLE_CAMERA
-    data.m_Type = Widget::T_Camera;
+//#ifdef ENABLE_CAMERA
+    data.m_Type = UiHelper::T_Camera;
     #if defined(ENABLE_HC_WL)
         data.m_Title = QString("360Area");//360°全景
         data.m_Normal = QString(":/images/CarBack360degreeNormal.png");
@@ -507,10 +518,10 @@ void ViewPaperWidgetPrivate::initializeBasic()
         data.m_Press = QString(":/Images/ViewPaperWidgetCameraPress.png");
     #endif
     m_MapType.insert(m_MapType.size(), data);
-#endif
+//#endif
 
-#ifdef ENABLE_AUX
-    data.m_Type = Widget::T_AUX;
+//#ifdef ENABLE_AUX
+    data.m_Type = UiHelper::T_AUX;
     #if defined(ENABLE_HC_WL)
         data.m_Title = QString("Monitor");//视频监控
         data.m_Normal = QString(":/Images/ViewPaperWidgetCameraNormal.png");
@@ -521,7 +532,7 @@ void ViewPaperWidgetPrivate::initializeBasic()
         data.m_Press = QString(":/Images/ViewPaperWidgetAUXPress.png");
     #endif
     m_MapType.insert(m_MapType.size(), data);
-#endif
+//#endif
 
 #ifdef ENABLE_STEERING
     data.m_Type = Widget::T_Steering;
@@ -541,21 +552,21 @@ void ViewPaperWidgetPrivate::initializeBasic()
 
     data.m_Type = UiHelper::T_airconditioner;
     data.m_Title = SourceString::airconditioner;
-    data.m_Normal = QString(":/ARK169/Style1/WSVGA/Images/ViewPaperWidgetConditionerNormal.png");
-    data.m_Press = QString(":/ARK169/Style1/WSVGA/Images/ViewPaperWidgetConditionerPress.png");
+    data.m_Normal = QString(":/Images/ViewPaperWidgetConditionerNormal.png");
+    data.m_Press = QString(":/Images/ViewPaperWidgetConditionerPress.png");
     m_MapType.insert(m_MapType.size(), data);
 
     data.m_Type = UiHelper::T_CarDotor;
     data.m_Title = SourceString::CarDotor;
-    data.m_Normal = QString(":/ARK169/Style1/WSVGA/Images/ViewPaperWidgetCarDotorNormal.png");
-    data.m_Press = QString(":/ARK169/Style1/WSVGA/Images/ViewPaperWidgetCarDotorPress.png");
+    data.m_Normal = QString(":/Images/ViewPaperWidgetCarDotorNormal.png");
+    data.m_Press = QString(":/Images/ViewPaperWidgetCarDotorPress.png");
     m_MapType.insert(m_MapType.size(), data);
 
 
     data.m_Type = UiHelper::T_Assist;
     data.m_Title = SourceString::Assist;
-    data.m_Normal = QString(":/ARK169/Style1/WSVGA/Images/ViewPaperWidgetAssistNormal.png");
-    data.m_Press = QString(":/ARK169/Style1/WSVGA/Images/ViewPaperWidgetAssistPress.png");
+    data.m_Normal = QString(":/Images/ViewPaperWidgetAssistNormal.png");
+    data.m_Press = QString(":/Images/ViewPaperWidgetAssistPress.png");
     m_MapType.insert(m_MapType.size(), data);
 
     data.m_Type = UiHelper::T_Setting;
@@ -761,15 +772,17 @@ void ViewPaperWidgetPrivate::initializeThirdView()
 
 void ViewPaperWidgetPrivate::firstViewPaperHandler(const unsigned int index)
 {
-
+    emit q_ptr->pushStr(m_MapType.value(index % 5).m_Title);
 }
 
 void ViewPaperWidgetPrivate::secondViewPaperHandler(const unsigned int index)
 {
+    emit q_ptr->pushStr(m_MapType.value((index-5) % 5).m_Title);
 }
 
 void ViewPaperWidgetPrivate::thirdViewPaperHandler(const unsigned int index)
 {
+    emit q_ptr->pushStr(m_MapType.value((index-10) % 5).m_Title);
 }
 ViewPaperItemDelegate::ViewPaperItemDelegate(QObject *parent)
     : CustomItemDelegate(parent)
@@ -840,6 +853,7 @@ void ViewPaperItemDelegate::mouseReleaseEvent(QMouseEvent *event, QAbstractItemM
 void ViewPaperItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->setPen(Qt::white);
+    painter->setFont(QFont(QString(),22));
     ViewPaperVariant variant = qvariant_cast<ViewPaperVariant>(index.data(Qt::UserRole));
     for (int i = 0; i < variant.m_StatusList.size(); ++i) {
         switch (variant.m_StatusList.at(i)) {

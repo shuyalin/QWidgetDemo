@@ -57,7 +57,8 @@ SOURCES       = main.cpp \
 		ViewPaperWidget/ViewPaperTipWidget/ViewPaperTipWidget.cpp \
 		CustomItemDelegate.cpp \
 		uihelper.cpp \
-		AutoConnect/AutoConnect.cpp moc_widget.cpp \
+		AutoConnect/AutoConnect.cpp qrc_pic.cpp \
+		moc_widget.cpp \
 		moc_ViewPaperWidget.cpp \
 		moc_ViewPaperTipWidget.cpp \
 		moc_CustomItemDelegate.cpp \
@@ -69,6 +70,7 @@ OBJECTS       = main.o \
 		CustomItemDelegate.o \
 		uihelper.o \
 		AutoConnect.o \
+		qrc_pic.o \
 		moc_widget.o \
 		moc_ViewPaperWidget.o \
 		moc_ViewPaperTipWidget.o \
@@ -456,6 +458,7 @@ Makefile: QMvcDemo.pro ../../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.co
 		../../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf \
 		../../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf \
 		QMvcDemo.pro \
+		Images/pic.qrc \
 		../../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Widgets.prl \
 		../../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Gui.prl \
 		../../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Core.prl
@@ -640,6 +643,7 @@ Makefile: QMvcDemo.pro ../../../../Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.co
 ../../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf:
 ../../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf:
 QMvcDemo.pro:
+Images/pic.qrc:
 ../../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Widgets.prl:
 ../../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Gui.prl:
 ../../../../Qt5.9.0/5.9/gcc_64/lib/libQt5Core.prl:
@@ -657,6 +661,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents Images/pic.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt5.9.0/5.9/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents widget.h ViewPaperWidget/ViewPaperWidget.h ViewPaperWidget/ViewPaperTipWidget/ViewPaperTipWidget.h CustomItemDelegate.h uihelper.h AutoConnect/AutoConnect.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp widget.cpp ViewPaperWidget/ViewPaperWidget.cpp ViewPaperWidget/ViewPaperTipWidget/ViewPaperTipWidget.cpp CustomItemDelegate.cpp uihelper.cpp AutoConnect/AutoConnect.cpp $(DISTDIR)/
@@ -684,8 +689,45 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_pic.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_pic.cpp
+qrc_pic.cpp: Images/pic.qrc \
+		../../../../Qt5.9.0/5.9/gcc_64/bin/rcc \
+		Images/ViewPaperWidgetConditionerNormal.png \
+		Images/ViewPaperWidgetConditionerPress.png \
+		Images/ViewPaperTipWidgetVisible.png \
+		Images/ViewPaperWidgetCarDotorPress.png \
+		Images/ViewPaperWidgetECLinkNormal.png \
+		Images/ViewPaperTipWidgetInvisible.png \
+		Images/ViewPaperWidgetNaviPress.png \
+		Images/ViewPaperWidgetRadioPress.png \
+		Images/ViewPaperWidgetSettingPress.png \
+		Images/ViewPaperWidgetSDPress.png \
+		Images/ViewPaperWidgetUSBPress.png \
+		Images/ViewPaperWidgetBluetoothNormal.png \
+		Images/ViewPaperWidgetAssistPress.png \
+		Images/ViewPaperWidgetAUXPress.png \
+		Images/ViewPaperWidgetHiCarNormal.png \
+		Images/ViewPaperWidgetRadioNormal.png \
+		Images/ViewPaperWidgetLinkNormal.png \
+		Images/ViewPaperWidgetLinkPress.png \
+		Images/ViewPaperWidgetBluetoothPress.png \
+		Images/ViewPaperWidgetCameraPress.png \
+		Images/ViewPaperWidgetAUXNormal.png \
+		Images/ViewPaperWidgetUSBNormal.png \
+		Images/ViewPaperWidgetPanelPress.png \
+		Images/ViewPaperWidgetHiCarPress.png \
+		Images/ViewPaperWidgetSettingNormal.png \
+		Images/ViewPaperWidgetAssistNormal.png \
+		Images/ViewPaperWidgetCarDotorNormal.png \
+		Images/ViewPaperWidgetSDNormal.png \
+		Images/ViewPaperWidgetNaviNormal.png \
+		Images/ViewPaperWidgetECLinkPress.png \
+		Images/ViewPaperWidgetPanelNormal.png \
+		Images/ViewPaperWidgetCameraNormal.png
+	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/rcc -name pic Images/pic.qrc -o qrc_pic.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
@@ -1229,6 +1271,56 @@ moc_uihelper.cpp: ../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/QObject \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
 		uihelper.h \
 		moc_predefs.h \
 		../../../../Qt5.9.0/5.9/gcc_64/bin/moc
@@ -1249,7 +1341,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -1785,6 +1877,10 @@ ViewPaperTipWidget.o: ViewPaperWidget/ViewPaperTipWidget/ViewPaperTipWidget.cpp 
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		AutoConnect/AutoConnect.h \
+		uihelper.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/QObject \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/QRect \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
@@ -1970,6 +2066,56 @@ uihelper.o: uihelper.cpp uihelper.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/QMutex
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o uihelper.o uihelper.cpp
 
@@ -2022,6 +2168,9 @@ AutoConnect.o: AutoConnect/AutoConnect.cpp AutoConnect/AutoConnect.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../../Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AutoConnect.o AutoConnect/AutoConnect.cpp
+
+qrc_pic.o: qrc_pic.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_pic.o qrc_pic.cpp
 
 moc_widget.o: moc_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widget.o moc_widget.cpp

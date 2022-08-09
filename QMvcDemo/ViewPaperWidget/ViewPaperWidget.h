@@ -22,6 +22,8 @@ protected:
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
+signals:
+    void pushStr(const QString &str);
 private slots:
     void onButtonRelease(const unsigned int index);
 private:
