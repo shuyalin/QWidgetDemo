@@ -36,4 +36,5 @@ FORMS += \
         widget.ui
 
 RESOURCES += \
-    res.qrc
+    res.qrc \
+    images.qrc

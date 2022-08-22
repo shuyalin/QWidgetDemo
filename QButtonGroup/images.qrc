@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/ViewPaperWidgetRadioNormal.png</file>
+        <file>Images/ViewPaperWidgetRadioPress.png</file>
+        <file>Images/ViewPaperWidgetSDNormal.png</file>
+        <file>Images/ViewPaperWidgetSDPress.png</file>
+        <file>Images/ViewPaperWidgetAssistNormal.png</file>
+        <file>Images/ViewPaperWidgetAssistPress.png</file>
+        <file>Images/ViewPaperWidgetAUXNormal.png</file>
+        <file>Images/ViewPaperWidgetAUXPress.png</file>
+        <file>Images/ViewPaperWidgetBluetoothNormal.png</file>
+        <file>Images/ViewPaperWidgetBluetoothPress.png</file>
+    </qresource>
+</RCC>

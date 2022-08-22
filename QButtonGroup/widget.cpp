@@ -32,6 +32,15 @@ Widget::Widget(QWidget *parent) :
     IconFont::Instance()->setIcon(ui->btn5, 0xe719, iconSize);
     IconFont::Instance()->setIcon(ui->btn6, 0xe71b, iconSize);
     IconFont::Instance()->setIcon(ui->btn7, 0xe63d, iconSize);
+
+
+
+    QButtonGroup *group1 = new QButtonGroup(this);
+    group1->addButton(ui->pushButton);
+    group1->addButton(ui->pushButton_2);
+    group1->addButton(ui->pushButton_3);
+    group1->addButton(ui->pushButton_4);
+    group1->addButton(ui->pushButton_5);
 }
 
 Widget::~Widget()
