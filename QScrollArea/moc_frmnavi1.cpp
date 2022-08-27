@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'widget.h'
+** Meta object code from reading C++ file 'frmnavi1.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.6)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "widget.h"
+#include "frmnavi1.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'widget.h' doesn't include <QObject>."
+#error "The header file 'frmnavi1.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.12.6. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,28 +20,27 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_Widget_t {
-    QByteArrayData data[4];
-    char stringdata0[22];
+struct qt_meta_stringdata_FrmNavi1_t {
+    QByteArrayData data[3];
+    char stringdata0[21];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_Widget_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_FrmNavi1_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_Widget_t qt_meta_stringdata_Widget = {
+static const qt_meta_stringdata_FrmNavi1_t qt_meta_stringdata_FrmNavi1 = {
     {
-QT_MOC_LITERAL(0, 0, 6), // "Widget"
-QT_MOC_LITERAL(1, 7, 8), // "showText"
-QT_MOC_LITERAL(2, 16, 0), // ""
-QT_MOC_LITERAL(3, 17, 4) // "text"
+QT_MOC_LITERAL(0, 0, 8), // "FrmNavi1"
+QT_MOC_LITERAL(1, 9, 10), // "expandArea"
+QT_MOC_LITERAL(2, 20, 0) // ""
 
     },
-    "Widget\0showText\0\0text"
+    "FrmNavi1\0expandArea\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_Widget[] = {
+static const uint qt_meta_data_FrmNavi1[] = {
 
  // content:
        8,       // revision
@@ -55,50 +54,51 @@ static const uint qt_meta_data_Widget[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x0a /* Public */,
+       1,    0,   19,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void,
 
        0        // eod
 };
 
-void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void FrmNavi1::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<Widget *>(_o);
+        auto *_t = static_cast<FrmNavi1 *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->showText((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 0: _t->expandArea(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject Widget::staticMetaObject = { {
+QT_INIT_METAOBJECT const QMetaObject FrmNavi1::staticMetaObject = { {
     &QWidget::staticMetaObject,
-    qt_meta_stringdata_Widget.data,
-    qt_meta_data_Widget,
+    qt_meta_stringdata_FrmNavi1.data,
+    qt_meta_data_FrmNavi1,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *Widget::metaObject() const
+const QMetaObject *FrmNavi1::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *Widget::qt_metacast(const char *_clname)
+void *FrmNavi1::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_Widget.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_FrmNavi1.stringdata0))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int FrmNavi1::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)

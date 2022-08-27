@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CustomItemDelegate.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.0)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.6)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'CustomItemDelegate.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.0. It"
+#error "This file was generated using the moc from 5.12.6. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CustomItemDelegate_t {
-    QByteArrayData data[5];
-    char stringdata0[67];
+    QByteArrayData data[6];
+    char stringdata0[79];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,19 +34,20 @@ static const qt_meta_stringdata_CustomItemDelegate_t qt_meta_stringdata_CustomIt
 QT_MOC_LITERAL(0, 0, 18), // "CustomItemDelegate"
 QT_MOC_LITERAL(1, 19, 20), // "onCurrentIndexChange"
 QT_MOC_LITERAL(2, 40, 0), // ""
-QT_MOC_LITERAL(3, 41, 5), // "index"
-QT_MOC_LITERAL(4, 47, 19) // "onPressIndexChanged"
+QT_MOC_LITERAL(3, 41, 11), // "QModelIndex"
+QT_MOC_LITERAL(4, 53, 5), // "index"
+QT_MOC_LITERAL(5, 59, 19) // "onPressIndexChanged"
 
     },
     "CustomItemDelegate\0onCurrentIndexChange\0"
-    "\0index\0onPressIndexChanged"
+    "\0QModelIndex\0index\0onPressIndexChanged"
 };
 #undef QT_MOC_LITERAL
 
 static const uint qt_meta_data_CustomItemDelegate[] = {
 
  // content:
-       7,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        2,   14, // methods
@@ -58,11 +59,11 @@ static const uint qt_meta_data_CustomItemDelegate[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    1,   24,    2, 0x09 /* Protected */,
-       4,    1,   27,    2, 0x09 /* Protected */,
+       5,    1,   27,    2, 0x09 /* Protected */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QModelIndex,    3,
-    QMetaType::Void, QMetaType::QModelIndex,    3,
+    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, 0x80000000 | 3,    4,
 
        0        // eod
 };
@@ -70,7 +71,7 @@ static const uint qt_meta_data_CustomItemDelegate[] = {
 void CustomItemDelegate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        CustomItemDelegate *_t = static_cast<CustomItemDelegate *>(_o);
+        auto *_t = static_cast<CustomItemDelegate *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->onCurrentIndexChange((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
@@ -80,10 +81,14 @@ void CustomItemDelegate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
     }
 }
 
-const QMetaObject CustomItemDelegate::staticMetaObject = {
-    { &QItemDelegate::staticMetaObject, qt_meta_stringdata_CustomItemDelegate.data,
-      qt_meta_data_CustomItemDelegate,  qt_static_metacall, nullptr, nullptr}
-};
+QT_INIT_METAOBJECT const QMetaObject CustomItemDelegate::staticMetaObject = { {
+    &QItemDelegate::staticMetaObject,
+    qt_meta_stringdata_CustomItemDelegate.data,
+    qt_meta_data_CustomItemDelegate,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
 
 
 const QMetaObject *CustomItemDelegate::metaObject() const
@@ -95,7 +100,7 @@ void *CustomItemDelegate::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_CustomItemDelegate.stringdata0))
-        return static_cast<void*>(const_cast< CustomItemDelegate*>(this));
+        return static_cast<void*>(this);
     return QItemDelegate::qt_metacast(_clname);
 }
 

@@ -7,6 +7,7 @@ frmNavi::frmNavi(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->widget_3->setVisible(false);
+    setProperty("key","off");
 }
 
 frmNavi::~frmNavi()
@@ -25,7 +26,13 @@ void frmNavi::setLabelTwoText(const QString &text)
 
 void frmNavi::on_pushButton_clicked()
 {
-    ui->widget_3->setVisible(true);//emit click();
+    if(property("key") == "off"){
+        ui->widget_3->setVisible(true);
+        setProperty("key","on");
+    }else if(property("key") == "on"){
+        ui->widget_3->setVisible(false);
+        setProperty("key","off");
+    }
 }
 void frmNavi::showExpand()
 {

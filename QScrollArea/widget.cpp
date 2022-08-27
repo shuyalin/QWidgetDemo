@@ -1,14 +1,16 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include <QScrollArea>
 #include <QPushButton>
+#include "frmnavi1.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    initComponent();
+    //initComponent();
+    //initComponent_1();
+    initComponent_2();
 }
 
 Widget::~Widget()
@@ -27,32 +29,62 @@ void Widget::initComponent()
 
     int i = 0;
     QString str("pushButton %1");
-//    QPushButton* pushButton;
-//    for (i=0; i<10; ++i)
-//    {
-//        pushButton = new QPushButton(str.arg(i+1), ui->scrollAreaWidgetContents);
-//        pushButton->setMinimumSize(pushButton->size());
-//        m_pSCVLayout->addWidget(pushButton);
-//    }
     frmNavi *navi1;
-    navi = new frmNavi(ui->scrollAreaWidgetContents);
-    navi->setLabelTwoText(str.arg(i+1));
     m_pSCVLayout->addWidget(navi);
     for (i=0; i<20; ++i)
     {
         navi1 = new frmNavi(ui->scrollAreaWidgetContents);
-        //navi->setMinimumSize(navi->size());
         navi1->setLabelTwoText(str.arg(i+1));
         m_pSCVLayout->addWidget(navi1);
     }
-    //connect(navi,SIGNAL(click()),this,SLOT(expandSD()));
 }
-void Widget::expandSD()
+void Widget::initComponent_1()
 {
-    static int count = 0;
-    if(count % 2 == 0)
-        navi->showExpand();
-    else
-        navi->hideExpand();
-    count++;
+    ui->scrollArea->setVisible(false);
+    area = new QScrollArea(this);
+    area->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
+    area->setWidgetResizable(true);
+    area->setGeometry(0,0,width(),height());
+    QWidget *widget = new QWidget(area);
+    widget->setGeometry(0,0,area->width(),area->height());
+    widget->show();
+    QVBoxLayout *m_pSCVLayout = new QVBoxLayout(widget);
+    m_pSCVLayout->setSizeConstraint(QVBoxLayout::SetMinAndMaxSize);
+
+
+    int i = 0;
+    QString str("shuyalin %1");
+    frmNavi *navi1;
+    for (i=0; i<20; ++i)
+    {
+        navi1 = new frmNavi(widget);
+        navi1->setLabelTwoText(str.arg(i+1));
+        m_pSCVLayout->addWidget(navi1);
+    }
 }
+
+void Widget::initComponent_2()
+{
+    ui->scrollArea->setVisible(false);
+    area = new QScrollArea(this);
+    area->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
+    area->setWidgetResizable(true);
+    area->setGeometry(0,0,width(),height());
+    QWidget *widget = new QWidget(area);
+    widget->setGeometry(0,0,area->width(),area->height());
+    widget->show();
+    QVBoxLayout *m_pSCVLayout = new QVBoxLayout(widget);
+    m_pSCVLayout->setSizeConstraint(QVBoxLayout::SetMinAndMaxSize);
+
+
+    int i = 0;
+    QString str("zhangsan %1");
+    FrmNavi1 *navi1;
+    for (i=0; i<20; ++i)
+    {
+        navi1 = new FrmNavi1(widget);
+        navi1->setLabelTwoText(str.arg(i+1));
+        m_pSCVLayout->addWidget(navi1);
+    }
+}
+

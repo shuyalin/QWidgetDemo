@@ -26,12 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         widget.cpp \
-    frmnavi.cpp
+    frmnavi.cpp \
+    frmnavi1.cpp
 
 HEADERS += \
         widget.h \
-    frmnavi.h
+    frmnavi.h \
+    frmnavi1.h
 
 FORMS += \
         widget.ui \
     frmnavi.ui
+
+RESOURCES += \
+    res.qrc

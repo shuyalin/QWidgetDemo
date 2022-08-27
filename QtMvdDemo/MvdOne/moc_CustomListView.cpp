@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CustomListView.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.0)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.6)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'CustomListView.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.0. It"
+#error "This file was generated using the moc from 5.12.6. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CustomListView_t {
-    QByteArrayData data[9];
-    char stringdata0[131];
+    QByteArrayData data[10];
+    char stringdata0[143];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,16 +34,17 @@ static const qt_meta_stringdata_CustomListView_t qt_meta_stringdata_CustomListVi
 QT_MOC_LITERAL(0, 0, 14), // "CustomListView"
 QT_MOC_LITERAL(1, 15, 19), // "onPressIndexChanged"
 QT_MOC_LITERAL(2, 35, 0), // ""
-QT_MOC_LITERAL(3, 36, 5), // "index"
-QT_MOC_LITERAL(4, 42, 20), // "onCurrentIndexChange"
-QT_MOC_LITERAL(5, 63, 19), // "listViewItemRelease"
-QT_MOC_LITERAL(6, 83, 21), // "listViewItemLongPress"
-QT_MOC_LITERAL(7, 105, 15), // "listViewRelease"
-QT_MOC_LITERAL(8, 121, 9) // "onTimeout"
+QT_MOC_LITERAL(3, 36, 11), // "QModelIndex"
+QT_MOC_LITERAL(4, 48, 5), // "index"
+QT_MOC_LITERAL(5, 54, 20), // "onCurrentIndexChange"
+QT_MOC_LITERAL(6, 75, 19), // "listViewItemRelease"
+QT_MOC_LITERAL(7, 95, 21), // "listViewItemLongPress"
+QT_MOC_LITERAL(8, 117, 15), // "listViewRelease"
+QT_MOC_LITERAL(9, 133, 9) // "onTimeout"
 
     },
     "CustomListView\0onPressIndexChanged\0\0"
-    "index\0onCurrentIndexChange\0"
+    "QModelIndex\0index\0onCurrentIndexChange\0"
     "listViewItemRelease\0listViewItemLongPress\0"
     "listViewRelease\0onTimeout"
 };
@@ -52,7 +53,7 @@ QT_MOC_LITERAL(8, 121, 9) // "onTimeout"
 static const uint qt_meta_data_CustomListView[] = {
 
  // content:
-       7,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        6,   14, // methods
@@ -64,19 +65,19 @@ static const uint qt_meta_data_CustomListView[] = {
 
  // signals: name, argc, parameters, tag, flags
        1,    1,   44,    2, 0x06 /* Public */,
-       4,    1,   47,    2, 0x06 /* Public */,
-       5,    1,   50,    2, 0x06 /* Public */,
-       6,    1,   53,    2, 0x06 /* Public */,
-       7,    0,   56,    2, 0x06 /* Public */,
+       5,    1,   47,    2, 0x06 /* Public */,
+       6,    1,   50,    2, 0x06 /* Public */,
+       7,    1,   53,    2, 0x06 /* Public */,
+       8,    0,   56,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   57,    2, 0x08 /* Private */,
+       9,    0,   57,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QModelIndex,    3,
-    QMetaType::Void, QMetaType::QModelIndex,    3,
-    QMetaType::Void, QMetaType::Int,    3,
-    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, QMetaType::Int,    4,
+    QMetaType::Void, QMetaType::Int,    4,
     QMetaType::Void,
 
  // slots: parameters
@@ -88,7 +89,7 @@ static const uint qt_meta_data_CustomListView[] = {
 void CustomListView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        CustomListView *_t = static_cast<CustomListView *>(_o);
+        auto *_t = static_cast<CustomListView *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->onPressIndexChanged((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
@@ -101,38 +102,37 @@ void CustomListView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (CustomListView::*_t)(const QModelIndex & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&CustomListView::onPressIndexChanged)) {
+            using _t = void (CustomListView::*)(const QModelIndex & );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CustomListView::onPressIndexChanged)) {
                 *result = 0;
                 return;
             }
         }
         {
-            typedef void (CustomListView::*_t)(const QModelIndex & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&CustomListView::onCurrentIndexChange)) {
+            using _t = void (CustomListView::*)(const QModelIndex & );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CustomListView::onCurrentIndexChange)) {
                 *result = 1;
                 return;
             }
         }
         {
-            typedef void (CustomListView::*_t)(const int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&CustomListView::listViewItemRelease)) {
+            using _t = void (CustomListView::*)(const int );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CustomListView::listViewItemRelease)) {
                 *result = 2;
                 return;
             }
         }
         {
-            typedef void (CustomListView::*_t)(const int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&CustomListView::listViewItemLongPress)) {
+            using _t = void (CustomListView::*)(const int );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CustomListView::listViewItemLongPress)) {
                 *result = 3;
                 return;
             }
         }
         {
-            typedef void (CustomListView::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&CustomListView::listViewRelease)) {
+            using _t = void (CustomListView::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CustomListView::listViewRelease)) {
                 *result = 4;
                 return;
             }
@@ -140,10 +140,14 @@ void CustomListView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
     }
 }
 
-const QMetaObject CustomListView::staticMetaObject = {
-    { &QListView::staticMetaObject, qt_meta_stringdata_CustomListView.data,
-      qt_meta_data_CustomListView,  qt_static_metacall, nullptr, nullptr}
-};
+QT_INIT_METAOBJECT const QMetaObject CustomListView::staticMetaObject = { {
+    &QListView::staticMetaObject,
+    qt_meta_stringdata_CustomListView.data,
+    qt_meta_data_CustomListView,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
 
 
 const QMetaObject *CustomListView::metaObject() const
@@ -155,7 +159,7 @@ void *CustomListView::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_CustomListView.stringdata0))
-        return static_cast<void*>(const_cast< CustomListView*>(this));
+        return static_cast<void*>(this);
     return QListView::qt_metacast(_clname);
 }
 

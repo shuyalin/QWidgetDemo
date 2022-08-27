@@ -32,13 +32,52 @@
    <item>
     <widget class="QWidget" name="widget" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
       <item>
        <widget class="QWidget" name="widget_2" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QLabel" name="label">
+           <property name="maximumSize">
+            <size>
+             <width>51</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/images/AC_N.png);</string>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -47,12 +86,31 @@
            <property name="text">
             <string>TextLabel</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>50</height>
+            </size>
+           </property>
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="res.qrc">
+             <normaloff>:/images/AC_P.png</normaloff>:/images/AC_P.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>60</width>
+             <height>50</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -80,6 +138,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>
