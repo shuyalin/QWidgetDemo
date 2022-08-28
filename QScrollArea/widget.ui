@@ -6,16 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>559</width>
+    <width>974</width>
     <height>711</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QScrollArea" name="scrollArea">
+    <widget class="CustomScrollArea" name="scrollArea">
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
@@ -24,16 +24,110 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>539</width>
+        <width>473</width>
         <height>691</height>
        </rect>
       </property>
      </widget>
     </widget>
    </item>
+   <item>
+    <widget class="CustomScrollArea" name="scrollArea_2">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>473</width>
+        <height>691</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="frmNavi" name="widget_11" native="true"/>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget_10" native="true"/>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget_9" native="true"/>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget_8" native="true"/>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget_7" native="true"/>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget_6" native="true"/>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget_5" native="true"/>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>80</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget_2" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>80</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget_3" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>80</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="frmNavi" name="widget_4" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>80</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CustomScrollArea</class>
+   <extends>QScrollArea</extends>
+   <header location="global">customscrollarea.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>frmNavi</class>
+   <extends>QWidget</extends>
+   <header location="global">frmnavi.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -27,12 +27,14 @@ SOURCES += \
         main.cpp \
         widget.cpp \
     frmnavi.cpp \
-    frmnavi1.cpp
+    frmnavi1.cpp \
+    customscrollarea.cpp
 
 HEADERS += \
         widget.h \
     frmnavi.h \
-    frmnavi1.h
+    frmnavi1.h \
+    customscrollarea.h
 
 FORMS += \
         widget.ui \

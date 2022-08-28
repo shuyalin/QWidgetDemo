@@ -2,7 +2,7 @@
 #include "ui_widget.h"
 #include <QPushButton>
 #include "frmnavi1.h"
-
+#include <QDebug>
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -10,7 +10,8 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
     //initComponent();
     //initComponent_1();
-    initComponent_2();
+    //initComponent_2();
+    initComponent_3();
 }
 
 Widget::~Widget()
@@ -26,11 +27,11 @@ void Widget::initComponent()
     QVBoxLayout *m_pSCVLayout = new QVBoxLayout(ui->scrollAreaWidgetContents);
     m_pSCVLayout->setSizeConstraint(QVBoxLayout::SetMinAndMaxSize);
 
-
+    qDebug()<<"aaaaaaaaaaaaaaaaaaaa";
     int i = 0;
     QString str("pushButton %1");
     frmNavi *navi1;
-    m_pSCVLayout->addWidget(navi);
+    //m_pSCVLayout->addWidget(navi);
     for (i=0; i<20; ++i)
     {
         navi1 = new frmNavi(ui->scrollAreaWidgetContents);
@@ -88,3 +89,28 @@ void Widget::initComponent_2()
     }
 }
 
+void Widget::initComponent_3()
+{
+    ui->scrollArea->setVisible(false);
+    ui->scrollArea_2->setVisible(false);
+    customArea = new CustomScrollArea(this);
+    customArea->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
+    customArea->setWidgetResizable(true);
+    customArea->setGeometry(0,0,width(),height());
+    QWidget *widget = new QWidget(customArea);
+    widget->setGeometry(0,0,customArea->width(),customArea->height());
+    widget->setStyleSheet("background:green;");
+    QVBoxLayout *m_pSCVLayout = new QVBoxLayout(widget);
+    m_pSCVLayout->setSizeConstraint(QVBoxLayout::SetMinAndMaxSize);
+
+    //customArea->widget()->setMouseTracking(true);
+    int i = 0;
+    QString str("liuyifei %1");
+    frmNavi *navi1;
+    for (i=0; i<10; ++i)
+    {
+        navi1 = new frmNavi(widget);
+        navi1->setLabelTwoText(str.arg(i+1));
+        m_pSCVLayout->addWidget(navi1);
+    }
+}
