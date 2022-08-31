@@ -97,19 +97,20 @@ void Widget::initComponent_3()
     customArea->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
     customArea->setWidgetResizable(true);
     customArea->setGeometry(0,0,width(),height());
-    QWidget *widget = new QWidget(customArea);
-    widget->setGeometry(0,0,customArea->width(),customArea->height());
-    widget->setStyleSheet("background:green;");
-    QVBoxLayout *m_pSCVLayout = new QVBoxLayout(widget);
+    scrollAreaWidgetContents = new QWidget(customArea);
+    scrollAreaWidgetContents->setEnabled(true);
+    scrollAreaWidgetContents->setGeometry(0,0,customArea->width(),customArea->height());
+    scrollAreaWidgetContents->setStyleSheet("background:green;");
+    QVBoxLayout *m_pSCVLayout = new QVBoxLayout(scrollAreaWidgetContents);
     m_pSCVLayout->setSizeConstraint(QVBoxLayout::SetMinAndMaxSize);
 
     //customArea->widget()->setMouseTracking(true);
     int i = 0;
     QString str("liuyifei %1");
     frmNavi *navi1;
-    for (i=0; i<10; ++i)
+    for (i=0; i<20; ++i)
     {
-        navi1 = new frmNavi(widget);
+        navi1 = new frmNavi(scrollAreaWidgetContents);
         navi1->setLabelTwoText(str.arg(i+1));
         m_pSCVLayout->addWidget(navi1);
     }

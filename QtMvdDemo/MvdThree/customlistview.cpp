@@ -33,12 +33,12 @@ CustomListView::CustomListView(QWidget *parent):QListView(parent)
     }
 
 
-
+    m_CustomScrollBar = new CustomScrollBar(this);
     model = new QStandardItemModel(this);
     delegate = new MyModelDelegate(this);
     setModel(model);
     setItemDelegate(delegate);
-
+    setVerticalScrollBar(m_CustomScrollBar);
     initItem_1();
 
 }

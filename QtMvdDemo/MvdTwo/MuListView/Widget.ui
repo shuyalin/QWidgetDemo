@@ -18,25 +18,25 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
-    <number>20</number>
+    <number>6</number>
    </property>
    <property name="leftMargin">
-    <number>20</number>
+    <number>6</number>
    </property>
    <property name="topMargin">
-    <number>20</number>
+    <number>6</number>
    </property>
    <property name="rightMargin">
-    <number>20</number>
+    <number>6</number>
    </property>
    <property name="bottomMargin">
-    <number>20</number>
+    <number>6</number>
    </property>
    <item>
     <widget class="QListView" name="listView">
      <property name="maximumSize">
       <size>
-       <width>300</width>
+       <width>16777215</width>
        <height>16777215</height>
       </size>
      </property>

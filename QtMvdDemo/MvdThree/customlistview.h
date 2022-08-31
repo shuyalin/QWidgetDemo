@@ -5,6 +5,7 @@
 #include <QList>
 #include <CustomItemDelegate.h>
 #include <QPainter>
+#include "CustomScrollBar.h"
 //#include <QMetaType>
 
 
@@ -29,6 +30,7 @@ public:
 private:
     QStandardItemModel *model;
     MyModelDelegate *delegate;
+    CustomScrollBar* m_CustomScrollBar;
     QList<MyData> dataLists;
     QList<QString> picUrlLists;
     QList<QString> titleTextLists;

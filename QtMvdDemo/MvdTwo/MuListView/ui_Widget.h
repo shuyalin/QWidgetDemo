@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Widget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.0
+** Created by: Qt User Interface Compiler version 5.12.6
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,8 @@
 #define UI_WIDGET_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QWidget>
 
@@ -29,18 +26,18 @@ public:
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
-            Widget->setObjectName(QStringLiteral("Widget"));
+            Widget->setObjectName(QString::fromUtf8("Widget"));
         Widget->resize(400, 300);
-        Widget->setStyleSheet(QStringLiteral(""));
+        Widget->setStyleSheet(QString::fromUtf8(""));
         horizontalLayout = new QHBoxLayout(Widget);
-        horizontalLayout->setSpacing(20);
+        horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(20, 20, 20, 20);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(6, 6, 6, 6);
         listView = new QListView(Widget);
-        listView->setObjectName(QStringLiteral("listView"));
-        listView->setMaximumSize(QSize(300, 16777215));
-        listView->setStyleSheet(QStringLiteral(""));
+        listView->setObjectName(QString::fromUtf8("listView"));
+        listView->setMaximumSize(QSize(16777215, 16777215));
+        listView->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout->addWidget(listView);
 
@@ -52,7 +49,7 @@ public:
 
     void retranslateUi(QWidget *Widget)
     {
-        Widget->setWindowTitle(QApplication::translate("Widget", "Widget", Q_NULLPTR));
+        Widget->setWindowTitle(QApplication::translate("Widget", "Widget", nullptr));
     } // retranslateUi
 
 };

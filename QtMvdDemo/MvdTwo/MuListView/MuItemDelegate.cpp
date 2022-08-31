@@ -66,5 +66,5 @@ void MuItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
 QSize MuItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Q_UNUSED(index)
-    return QSize(option.rect.width(), 50);
+    return QSize(option.rect.width(), 150);
 }

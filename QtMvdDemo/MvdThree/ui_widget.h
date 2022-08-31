@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'widget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.0
+** Created by: Qt User Interface Compiler version 5.12.6
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,10 +10,7 @@
 #define UI_WIDGET_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,7 +22,7 @@ public:
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
-            Widget->setObjectName(QStringLiteral("Widget"));
+            Widget->setObjectName(QString::fromUtf8("Widget"));
         Widget->resize(1157, 604);
 
         retranslateUi(Widget);
@@ -35,7 +32,7 @@ public:
 
     void retranslateUi(QWidget *Widget)
     {
-        Widget->setWindowTitle(QApplication::translate("Widget", "Widget", Q_NULLPTR));
+        Widget->setWindowTitle(QApplication::translate("Widget", "Widget", nullptr));
     } // retranslateUi
 
 };

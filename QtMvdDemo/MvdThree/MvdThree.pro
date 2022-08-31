@@ -27,12 +27,14 @@ SOURCES += \
         main.cpp \
         widget.cpp \
     customlistview.cpp \
-    CustomItemDelegate.cpp
+    CustomItemDelegate.cpp \
+    CustomScrollBar.cpp
 
 HEADERS += \
         widget.h \
     customlistview.h \
-    CustomItemDelegate.h
+    CustomItemDelegate.h \
+    CustomScrollBar.h
 
 FORMS += \
         widget.ui
