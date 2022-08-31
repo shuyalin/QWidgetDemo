@@ -1,5 +1,5 @@
 #include "customscrollarea.h"
-
+#include <QListView>
 #include <QDebug>
 CustomScrollArea::CustomScrollArea(QWidget *widget):QScrollArea(widget)
 {
@@ -15,12 +15,13 @@ void CustomScrollArea::mouseMoveEvent(QMouseEvent *event)
             wheelEvent(&e);
             lastY = event->y();
         }
-        QWidget::mouseMoveEvent(event);
+        //QScrollArea::mouseMoveEvent(event);
+    QListView::mouseMoveEvent(event);
 }
 void CustomScrollArea::mousePressEvent(QMouseEvent *event)
 {
     lastY = event->y();
     qDebug()<<"eeeeeeeeeeeee "<<lastY;
-    QWidget::mousePressEvent(event);
+    QScrollArea::mousePressEvent(event);
 }
 

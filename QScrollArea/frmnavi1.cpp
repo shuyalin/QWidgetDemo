@@ -5,6 +5,7 @@ FrmNavi1::FrmNavi1(QWidget *parent):QWidget(parent)
     vLayout = new QVBoxLayout(this);
     vLayout->setSpacing(0);
     vLayout->setMargin(0);
+    vLayout->setContentsMargins(50,0,50,100);
     widgetOne = new QWidget(this);
     widgetTwo = new QWidget(this);
     //widgetTwo->resize(777,51);

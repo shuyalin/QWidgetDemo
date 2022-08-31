@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'radiobuttonstyle.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.7
+** Created by: Qt User Interface Compiler version 5.9.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,13 @@
 #define UI_RADIOBUTTONSTYLE_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QGridLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QRadioButton>
-#include <QtGui/QWidget>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -32,33 +32,33 @@ public:
     void setupUi(QWidget *radioButtonStyle)
     {
         if (radioButtonStyle->objectName().isEmpty())
-            radioButtonStyle->setObjectName(QString::fromUtf8("radioButtonStyle"));
+            radioButtonStyle->setObjectName(QStringLiteral("radioButtonStyle"));
         radioButtonStyle->resize(436, 315);
         gridLayout = new QGridLayout(radioButtonStyle);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         radioButton1 = new QRadioButton(radioButtonStyle);
-        radioButton1->setObjectName(QString::fromUtf8("radioButton1"));
+        radioButton1->setObjectName(QStringLiteral("radioButton1"));
         radioButton1->setMinimumSize(QSize(100, 40));
         radioButton1->setMaximumSize(QSize(100, 16777215));
 
         gridLayout->addWidget(radioButton1, 0, 1, 1, 1);
 
         radioButton2 = new QRadioButton(radioButtonStyle);
-        radioButton2->setObjectName(QString::fromUtf8("radioButton2"));
+        radioButton2->setObjectName(QStringLiteral("radioButton2"));
         radioButton2->setMinimumSize(QSize(100, 40));
         radioButton2->setMaximumSize(QSize(100, 16777215));
 
         gridLayout->addWidget(radioButton2, 0, 0, 1, 1);
 
         radioButton3 = new QRadioButton(radioButtonStyle);
-        radioButton3->setObjectName(QString::fromUtf8("radioButton3"));
+        radioButton3->setObjectName(QStringLiteral("radioButton3"));
         radioButton3->setMinimumSize(QSize(100, 40));
         radioButton3->setMaximumSize(QSize(100, 16777215));
 
         gridLayout->addWidget(radioButton3, 1, 0, 1, 1);
 
         radioButton4 = new QRadioButton(radioButtonStyle);
-        radioButton4->setObjectName(QString::fromUtf8("radioButton4"));
+        radioButton4->setObjectName(QStringLiteral("radioButton4"));
         radioButton4->setMinimumSize(QSize(100, 40));
         radioButton4->setMaximumSize(QSize(100, 16777215));
 
@@ -72,11 +72,11 @@ public:
 
     void retranslateUi(QWidget *radioButtonStyle)
     {
-        radioButtonStyle->setWindowTitle(QApplication::translate("radioButtonStyle", "Form", 0, QApplication::UnicodeUTF8));
-        radioButton1->setText(QApplication::translate("radioButtonStyle", "two", 0, QApplication::UnicodeUTF8));
-        radioButton2->setText(QApplication::translate("radioButtonStyle", "one", 0, QApplication::UnicodeUTF8));
-        radioButton3->setText(QApplication::translate("radioButtonStyle", "three", 0, QApplication::UnicodeUTF8));
-        radioButton4->setText(QApplication::translate("radioButtonStyle", "four", 0, QApplication::UnicodeUTF8));
+        radioButtonStyle->setWindowTitle(QApplication::translate("radioButtonStyle", "Form", Q_NULLPTR));
+        radioButton1->setText(QApplication::translate("radioButtonStyle", "two", Q_NULLPTR));
+        radioButton2->setText(QApplication::translate("radioButtonStyle", "one", Q_NULLPTR));
+        radioButton3->setText(QApplication::translate("radioButtonStyle", "three", Q_NULLPTR));
+        radioButton4->setText(QApplication::translate("radioButtonStyle", "four", Q_NULLPTR));
     } // retranslateUi
 
 };

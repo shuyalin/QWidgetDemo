@@ -155,6 +155,7 @@ void ViewPaperWidget::mouseMoveEvent(QMouseEvent *event)
                 int deltaEnd = event->pos().x() - d->m_StartMovePoint.x();
                 if (d->m_Filter) {
                     d->m_StartMovePoint = event->pos();
+                    qDebug()<<"rrrrrrrrrrrrrrrr "<<horizontalOffset() + relativePos.x();
                     horizontalScrollBar()->setValue(horizontalOffset() + relativePos.x());
                 } else if ((qAbs(deltaEnd) > d->m_Threshold)) {
                     d->m_Filter = true;

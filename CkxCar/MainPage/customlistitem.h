@@ -26,6 +26,8 @@ public slots:
 private:
     Ui::customListItem *ui;
     QList<QToolButton*> btns;
+    QList<QString> titleList;
+    QList<QString> iconList;
 };
 
 #endif // CUSTOMLISTITEM_H

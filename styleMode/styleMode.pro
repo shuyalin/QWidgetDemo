@@ -28,14 +28,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         widget.cpp \
-    myhelper.cpp
+    myhelper.cpp \
+    formlistwidget.cpp \
+    customlistwidgetitemone.cpp
 
 HEADERS += \
         widget.h \
-    myhelper.h
+    myhelper.h \
+    formlistwidget.h \
+    customlistwidgetitemone.h
 
 FORMS += \
-        widget.ui
+        widget.ui \
+    formlistwidget.ui \
+    customlistwidgetitemone.ui
 
 RESOURCES += \
     res.qrc
