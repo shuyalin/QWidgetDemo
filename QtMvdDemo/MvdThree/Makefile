@@ -53,19 +53,35 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.cpp \
 		widget.cpp \
+		CustomItemDelegate.cpp \
+		widgetwindow.cpp \
+		customscrollbar.cpp \
+		Widget.cpp \
 		customlistview.cpp \
-		CustomItemDelegate.cpp qrc_res.cpp \
+		UserInterfaceUtility.cpp \
+		AutoConnect.cpp qrc_res.cpp \
 		moc_widget.cpp \
-		moc_customlistview.cpp \
-		moc_CustomItemDelegate.cpp
+		moc_CustomItemDelegate.cpp \
+		moc_widgetwindow.cpp \
+		moc_customscrollbar.cpp \
+		moc_Widget.cpp \
+		moc_customlistview.cpp
 OBJECTS       = main.o \
 		widget.o \
-		customlistview.o \
 		CustomItemDelegate.o \
+		widgetwindow.o \
+		customscrollbar.o \
+		Widget.o \
+		customlistview.o \
+		UserInterfaceUtility.o \
+		AutoConnect.o \
 		qrc_res.o \
 		moc_widget.o \
-		moc_customlistview.o \
-		moc_CustomItemDelegate.o
+		moc_CustomItemDelegate.o \
+		moc_widgetwindow.o \
+		moc_customscrollbar.o \
+		moc_Widget.o \
+		moc_customlistview.o
 DIST          = /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/common/unix.conf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/common/linux.conf \
@@ -226,6 +242,7 @@ DIST          = /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -245,11 +262,21 @@ DIST          = /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/yacc.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/lex.prf \
 		MvdThree.pro widget.h \
+		CustomItemDelegate.h \
+		widgetwindow.h \
+		customscrollbar.h \
+		Widget.h \
 		customlistview.h \
-		CustomItemDelegate.h main.cpp \
+		UserInterfaceUtility.h \
+		AutoConnect.h main.cpp \
 		widget.cpp \
+		CustomItemDelegate.cpp \
+		widgetwindow.cpp \
+		customscrollbar.cpp \
+		Widget.cpp \
 		customlistview.cpp \
-		CustomItemDelegate.cpp
+		UserInterfaceUtility.cpp \
+		AutoConnect.cpp
 QMAKE_TARGET  = MvdThree
 DESTDIR       = 
 TARGET        = MvdThree
@@ -421,6 +448,7 @@ Makefile: MvdThree.pro /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.con
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -605,6 +633,7 @@ Makefile: MvdThree.pro /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.con
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/qt_config.prf:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/toolchain.prf:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/default_pre.prf:
@@ -644,8 +673,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents res.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents widget.h customlistview.h CustomItemDelegate.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp widget.cpp customlistview.cpp CustomItemDelegate.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents widget.h CustomItemDelegate.h widgetwindow.h customscrollbar.h Widget.h customlistview.h UserInterfaceUtility.h AutoConnect.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp widget.cpp CustomItemDelegate.cpp widgetwindow.cpp customscrollbar.cpp Widget.cpp customlistview.cpp UserInterfaceUtility.cpp AutoConnect.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents widget.ui $(DISTDIR)/
 
 
@@ -687,9 +716,12 @@ qrc_res.cpp: res.qrc \
 		images/BluetoothDialThreePress.png \
 		images/BluetoothDialSevenNormal.png \
 		images/BluetoothDialOnePress.png \
+		images/BluetoothListViewAvatar.png \
 		images/BluetoothDialTwoNormal.png \
+		images/BluetoothContactListViewItemPress.png \
 		images/BluetoothDialFivePress.png \
 		images/BluetoothDialNinePress.png \
+		images/BluetoothContactListViewRules.png \
 		images/BluetoothDialFourNormal.png \
 		images/BluetoothDialThreeNormal.png \
 		images/BluetoothDialFourPress.png
@@ -701,9 +733,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -W -dM -E -o moc_predefs.h /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_widget.cpp moc_customlistview.cpp moc_CustomItemDelegate.cpp
+compiler_moc_header_make_all: moc_widget.cpp moc_CustomItemDelegate.cpp moc_widgetwindow.cpp moc_customscrollbar.cpp moc_Widget.cpp moc_customlistview.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_widget.cpp moc_customlistview.cpp moc_CustomItemDelegate.cpp
+	-$(DEL_FILE) moc_widget.cpp moc_CustomItemDelegate.cpp moc_widgetwindow.cpp moc_customscrollbar.cpp moc_Widget.cpp moc_customlistview.cpp
 moc_widget.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -804,115 +836,12 @@ moc_widget.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
-		widget.h \
-		moc_predefs.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc
-	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/ckxl/Work/qt-test/QWidgetDemo/QtMvdDemo/MvdThree -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include widget.h -o moc_widget.cpp
-
-moc_customlistview.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
+		customlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -927,19 +856,17 @@ moc_customlistview.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListVie
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QList \
-		CustomItemDelegate.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
-		customlistview.h \
+		widgetwindow.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItem \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qstandarditemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
+		customscrollbar.h \
+		widget.h \
 		moc_predefs.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc
-	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/ckxl/Work/qt-test/QWidgetDemo/QtMvdDemo/MvdThree -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include customlistview.h -o moc_customlistview.cpp
+	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/ckxl/Work/qt-test/QWidgetDemo/QtMvdDemo/MvdThree -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include widget.h -o moc_widget.cpp
 
 moc_CustomItemDelegate.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
@@ -1062,6 +989,482 @@ moc_CustomItemDelegate.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QIte
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc
 	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/ckxl/Work/qt-test/QWidgetDemo/QtMvdDemo/MvdThree -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include CustomItemDelegate.h -o moc_CustomItemDelegate.cpp
 
+moc_widgetwindow.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItem \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qstandarditemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		customlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		customscrollbar.h \
+		widgetwindow.h \
+		moc_predefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc
+	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/ckxl/Work/qt-test/QWidgetDemo/QtMvdDemo/MvdThree -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include widgetwindow.h -o moc_widgetwindow.cpp
+
+moc_customscrollbar.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		customscrollbar.h \
+		moc_predefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc
+	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/ckxl/Work/qt-test/QWidgetDemo/QtMvdDemo/MvdThree -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include customscrollbar.h -o moc_customscrollbar.cpp
+
+moc_Widget.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QObject \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QRect \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qeventloop.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
+		Widget.h \
+		moc_predefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc
+	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/ckxl/Work/qt-test/QWidgetDemo/QtMvdDemo/MvdThree -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Widget.h -o moc_Widget.cpp
+
+moc_customlistview.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		customlistview.h \
+		moc_predefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc
+	/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++ -I/home/ckxl/Work/qt-test/QWidgetDemo/QtMvdDemo/MvdThree -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui -I/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include customlistview.h -o moc_customlistview.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_uic_make_all: ui_widget.h
@@ -1182,6 +1585,33 @@ main.o: main.cpp widget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		customlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		widgetwindow.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItem \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qstandarditemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
+		customscrollbar.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1292,114 +1722,12 @@ widget.o: widget.cpp widget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_widget.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o widget.cpp
-
-customlistview.o: customlistview.cpp customlistview.h \
+		customlistview.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -1414,18 +1742,30 @@ customlistview.o: customlistview.cpp customlistview.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QList \
-		CustomItemDelegate.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItemModel \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qstandarditemmodel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customlistview.o customlistview.cpp
+		widgetwindow.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItem \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qstandarditemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
+		customscrollbar.h \
+		ui_widget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QVariant \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QAction \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qaction.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qeventloop.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QHeaderView \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qheaderview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o widget.cpp
 
 CustomItemDelegate.o: CustomItemDelegate.cpp CustomItemDelegate.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
@@ -1551,17 +1891,681 @@ CustomItemDelegate.o: CustomItemDelegate.cpp CustomItemDelegate.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CustomItemDelegate.o CustomItemDelegate.cpp
 
+widgetwindow.o: widgetwindow.cpp widgetwindow.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItem \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qstandarditemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		customlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		customscrollbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItemModel \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QDebug \
+		Widget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QObject \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QRect \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qeventloop.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widgetwindow.o widgetwindow.cpp
+
+customscrollbar.o: customscrollbar.cpp customscrollbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customscrollbar.o customscrollbar.cpp
+
+Widget.o: Widget.cpp Widget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QObject \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QRect \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qeventloop.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QDebug \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QDesktopWidget \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QResource \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qresource.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QFont \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QTimer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtimer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasictimer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QTime \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatetime.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Widget.o Widget.cpp
+
+customlistview.o: customlistview.cpp customlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListView \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qlistview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qframe.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpalette.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfont.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qfontinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcursor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qkeysequence.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qurlquery.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvector2d.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qvalidator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregularexpression.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qicon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qstyle.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		AutoConnect.h \
+		UserInterfaceUtility.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QObject \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QBrush \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QColor \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QTime \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatetime.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QDebug \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QByteArray \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QString \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QEvent \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QMouseEvent \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QPoint \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QTimer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtimer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasictimer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customlistview.o customlistview.cpp
+
+UserInterfaceUtility.o: UserInterfaceUtility.cpp UserInterfaceUtility.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QObject \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QBrush \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qbrush.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtgui-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpoint.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvector.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qcolor.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgb.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qrgba64.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qmatrix.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpolygon.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmargins.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsize.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qregion.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatastream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiodevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qline.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtransform.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainterpath.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qimage.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixelformat.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpixmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qshareddata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhash.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QColor \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QTime \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdatetime.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QDebug \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qdebug.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtextstream.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlocale.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvariant.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qset.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QByteArray \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QString \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QFile \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfile.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qfiledevice.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QDataStream
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o UserInterfaceUtility.o UserInterfaceUtility.cpp
+
+AutoConnect.o: AutoConnect.cpp AutoConnect.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnamespace.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobal.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qconfig.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtcore-config.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qsysinfo.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlogging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qflags.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmutex.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qnumeric.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qversiontagging.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QObject \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstring.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qchar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qrefcount.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qarraydata.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qalgorithms.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qiterator.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qpair.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringlist.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qregexp.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreevent.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qmetatype.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qobject_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AutoConnect.o AutoConnect.cpp
+
 qrc_res.o: qrc_res.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_res.o qrc_res.cpp
 
 moc_widget.o: moc_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widget.o moc_widget.cpp
 
-moc_customlistview.o: moc_customlistview.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_customlistview.o moc_customlistview.cpp
-
 moc_CustomItemDelegate.o: moc_CustomItemDelegate.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_CustomItemDelegate.o moc_CustomItemDelegate.cpp
+
+moc_widgetwindow.o: moc_widgetwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widgetwindow.o moc_widgetwindow.cpp
+
+moc_customscrollbar.o: moc_customscrollbar.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_customscrollbar.o moc_customscrollbar.cpp
+
+moc_Widget.o: moc_Widget.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Widget.o moc_Widget.cpp
+
+moc_customlistview.o: moc_customlistview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_customlistview.o moc_customlistview.cpp
 
 ####### Install
 

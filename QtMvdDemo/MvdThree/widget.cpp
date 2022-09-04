@@ -1,18 +1,22 @@
 #include "widget.h"
 #include "ui_widget.h"
 
-Widget::Widget(QWidget *parent) :
+MyWidget::MyWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
 
-    view = new CustomListView(this);
-    view->setGeometry(0,0,width(),height());
-    view->show();
+//    view = new CustomListView(this);
+//    view->setGeometry(0,0,width()/2 -10,height());
+//    view->show();
+
+    window = new WidgetWindow(this);
+    //window->setGeometry(10,0,width()/2 -10,height());
+    //window->show();
 }
 
-Widget::~Widget()
+MyWidget::~MyWidget()
 {
     delete ui;
 }

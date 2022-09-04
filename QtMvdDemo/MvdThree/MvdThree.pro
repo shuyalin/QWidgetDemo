@@ -26,16 +26,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         widget.cpp \
+    CustomItemDelegate.cpp \
+    widgetwindow.cpp \
+    customscrollbar.cpp \
+    Widget.cpp \
     customlistview.cpp \
-    CustomItemDelegate.cpp
+    UserInterfaceUtility.cpp \
+    AutoConnect.cpp
 
 HEADERS += \
         widget.h \
+    CustomItemDelegate.h \
+    widgetwindow.h \
+    customscrollbar.h \
+    Widget.h \
     customlistview.h \
-    CustomItemDelegate.h
+    UserInterfaceUtility.h \
+    AutoConnect.h
 
 FORMS += \
         widget.ui
 
 RESOURCES += \
     res.qrc
+

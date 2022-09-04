@@ -2,53 +2,35 @@
 #define CUSTOMLISTVIEW_H
 
 #include <QListView>
-#include <QList>
-#include <CustomItemDelegate.h>
-#include <QPainter>
-//#include <QMetaType>
+#include <QScopedPointer>
 
-
-typedef struct {
-    QString picUrl;
-    QString titleText;
-    QString detailText;
-}MyData;
-
-Q_DECLARE_METATYPE(MyData)
-
-class QStandardItemModel;
-class MyModelDelegate;
-class CustomListView:public QListView
+class CustomListViewPrivate;
+class CustomListView : public QListView
 {
     Q_OBJECT
+    Q_DISABLE_COPY(CustomListView)
 public:
-    CustomListView(QWidget *parent = 0);
-    void initItem_1();
-    //void initItem_2();
-    //void initItem_3();
-private:
-    QStandardItemModel *model;
-    MyModelDelegate *delegate;
-    QList<MyData> dataLists;
-    QList<QString> picUrlLists;
-    QList<QString> titleTextLists;
-    QList<QString> detailTextLists;
-};
-class MyModelDelegate:public CustomItemDelegate
-{
-    Q_OBJECT
-public:
-    explicit MyModelDelegate(QObject* parent = NULL);
-    ~MyModelDelegate();
-    QSize sizeHint(const QStyleOptionViewItem &option,const QModelIndex &index) const override;
+    explicit CustomListView(QWidget *parent = NULL, const bool tansparent = true);
+    ~CustomListView();
+    void setCurrentIndex(const QModelIndex &index);
+    void setItemDelegate(QAbstractItemDelegate *delegate);
+    void enableLongPress(const bool flag);
 protected:
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-
-
-protected slots:
+    void mousePressEvent(QMouseEvent* event);
+    void mouseMoveEvent(QMouseEvent* event);
+    void mouseReleaseEvent(QMouseEvent* event) ;
+signals:
+    void onPressIndexChanged(const QModelIndex &index);
     void onCurrentIndexChange(const QModelIndex &index);
-
+    void listViewItemRelease(const int index);
+    void listViewItemLongPress(const int index);
+    void listViewRelease();
+    void listViewPress();
+private slots:
+    void onTimeout();
 private:
-    QModelIndex currentIndex;
+    friend class CustomListViewPrivate;
+    QScopedPointer<CustomListViewPrivate> m_Private;
 };
+
 #endif // CUSTOMLISTVIEW_H

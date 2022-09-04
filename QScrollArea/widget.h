@@ -21,11 +21,14 @@ public:
     void initComponent_1();
     void initComponent_2();
     void initComponent_3();
+
 private:
     Ui::Widget *ui;
     frmNavi *navi;
     QScrollArea *area;
     CustomScrollArea *customArea;
+    QWidget *widget;
+    int lastY;
 };
 
 #endif // WIDGET_H

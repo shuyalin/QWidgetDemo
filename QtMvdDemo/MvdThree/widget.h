@@ -3,22 +3,23 @@
 
 #include <QWidget>
 #include "customlistview.h"
-
+#include "widgetwindow.h"
 namespace Ui {
 class Widget;
 }
 
-class Widget : public QWidget
+class MyWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Widget(QWidget *parent = 0);
-    ~Widget();
+    explicit MyWidget(QWidget *parent = 0);
+    ~MyWidget();
 
 private:
     Ui::Widget *ui;
     CustomListView *view;
+    WidgetWindow *window;
 };
 
 #endif // WIDGET_H

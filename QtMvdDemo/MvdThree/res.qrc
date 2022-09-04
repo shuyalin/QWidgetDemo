@@ -18,5 +18,8 @@
         <file>images/BluetoothDialFiveNormal.png</file>
         <file>images/BluetoothDialEightPress.png</file>
         <file>images/BluetoothDialEightNormal.png</file>
+        <file>images/BluetoothListViewAvatar.png</file>
+        <file>images/BluetoothContactListViewRules.png</file>
+        <file>images/BluetoothContactListViewItemPress.png</file>
     </qresource>
 </RCC>

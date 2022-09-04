@@ -1,105 +1,188 @@
 #include "customlistview.h"
-#include <QStandardItemModel>
-#include <QDebug>
+#include "AutoConnect.h"
+#include "UserInterfaceUtility.h"
+#include <QEvent>
+#include <QMouseEvent>
+#include <QScrollBar>
+#include <QPoint>
+#include <QTimer>
 
-CustomListView::CustomListView(QWidget *parent):QListView(parent)
+class CustomListViewPrivate
 {
-#if 1
-    picUrlLists << ":/images/BluetoothDialOneNormal.png"\
-                << ":/images/BluetoothDialTwoNormal.png"\
-                << ":/images/BluetoothDialThreeNormal.png"\
-                << ":/images/BluetoothDialFourNormal.png"\
-                << ":/images/BluetoothDialFiveNormal.png"\
-                << ":/images/BluetoothDialSixNormal.png"\
-                << ":/images/BluetoothDialSevenNormal.png"\
-                << ":/images/BluetoothDialEightNormal.png"\
-                << ":/images/BluetoothDialNineNormal.png";
+public:
+    explicit CustomListViewPrivate(CustomListView* parent);
+    ~CustomListViewPrivate();
+    void initializeTimer();
+    QPoint m_StartMovePoint;
+    unsigned int m_Threshold;
+    bool m_Filter;
+    bool m_LongPressFilter;
+    QTimer* m_Timer;
+private:
+    CustomListView* m_Parent;
+};
 
-    titleTextLists << "one" << "two" << "three" << "four" << "five" << "six"\
-                   << "seven" << "eight" << "nine";
-
-    detailTextLists << "11111111111111111111" << "2222222222222222222222"\
-                    << "33333333333333333333" << "4444444444444444444444"\
-                    << "55555555555555555555" << "6666666666666666666666"\
-                    << "77777777777777777777" << "8888888888888888888888"\
-                    << "99999999999999999999";
-#endif
-    for(int i = 0;i < picUrlLists.size();i++){
-        MyData data;
-        data.picUrl = picUrlLists.at(i);
-        data.titleText = titleTextLists.at(i);
-        data.detailText = detailTextLists.at(i);
-        dataLists << data;
+CustomListView::CustomListView(QWidget *parent, const bool tansparent)
+    : QListView(parent)
+    , m_Private(new CustomListViewPrivate(this))
+{
+    if (tansparent) {
+        QPalette palette = this->palette();
+        palette.setBrush(QPalette::Base, QBrush(Qt::NoBrush));
+        setPalette(palette);
     }
-
-
-
-    model = new QStandardItemModel(this);
-    delegate = new MyModelDelegate(this);
-    setModel(model);
-    setItemDelegate(delegate);
-
-    initItem_1();
-
+    setFrameShape(QListView::NoFrame);
+    setVerticalScrollMode(QListView::ScrollPerPixel);
+    setEditTriggers(QListView::NoEditTriggers);
+    setSpacing(0);
+    setDragEnabled(false);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setSelectionBehavior(QListView::SelectRows);
+    setSelectionMode(QListView::SingleSelection);
 }
-void CustomListView::initItem_1()
+
+CustomListView::~CustomListView()
 {
-    for(int i = 0;i < dataLists.size();i++){
-        QStandardItem *item = new QStandardItem;
-        item->setData(QVariant::fromValue(dataLists.at(i)),Qt::UserRole+1);
-        model->setItem(i,0,item);
-    }
 }
-#if 0
-void CustomListView::initItem_2()
+
+void CustomListView::setCurrentIndex(const QModelIndex &index)
 {
-    for(int i = 0;i < dataLists.size();i++){
-        QStandardItem *item = new QStandardItem;
-        item->setData(QVariant::fromValue(dataLists.at(i)),Qt::UserRole + 1);
-        model->setItem(i,0,item);
+    QListView::setCurrentIndex(index);
+    onCurrentIndexChange(index);
+    if (isVisible()) {
+        update();
     }
 }
 
-void CustomListView::initItem_3()
+void CustomListView::setItemDelegate(QAbstractItemDelegate *delegate)
 {
-    QStandardItem *root = model->invisibleRootItem();
-    for(int i = 0;i < dataLists.size();i++){
-        QStandardItem *item = new QStandardItem;
-        item->setData(QVariant::fromValue(dataLists.at(i)),Qt::UserRole + 1);
-        root->setChild(root->rowCount(),0,item);
+    connectSignalAndSlotByNamesake(this, delegate, SLOT(onPressIndexChanged(const QModelIndex &)));
+    connectSignalAndSlotByNamesake(this, delegate, SLOT(onCurrentIndexChange(const QModelIndex &)));
+    QListView::setItemDelegate(delegate);
+}
+
+void CustomListView::enableLongPress(const bool flag)
+{
+    if (flag) {
+        m_Private->initializeTimer();
     }
 }
-#endif
 
-#if 1
-MyModelDelegate::MyModelDelegate(QObject *parent)
-    : CustomItemDelegate(parent)
+void CustomListView::mousePressEvent(QMouseEvent *event)
 {
-
+    m_Private->m_StartMovePoint = event->pos();
+    m_Private->m_Filter = false;
+    m_Private->m_LongPressFilter = false;
+    QModelIndex modelIndex = indexAt(event->pos());
+    if (modelIndex.isValid()) {
+        emit onPressIndexChanged(modelIndex);
+        update(modelIndex);
+        if (NULL != m_Private->m_Timer) {
+            m_Private->m_Timer->start();
+        }
+    }
+    emit listViewPress();
+    QListView::mousePressEvent(event);
 }
 
-MyModelDelegate::~MyModelDelegate()
+void CustomListView::mouseMoveEvent(QMouseEvent *event)
 {
+    if (!m_Private->m_LongPressFilter) {
+        QPoint relativePos = m_Private->m_StartMovePoint - event->pos();
+        int deltaEnd = 0;
+        if (QListView::LeftToRight == flow()) {
+            deltaEnd = event->pos().x() - m_Private->m_StartMovePoint.x();
+        } else {
+            deltaEnd = event->pos().y() - m_Private->m_StartMovePoint.y();
+        }
+        if (m_Private->m_Filter) {
+            m_Private->m_StartMovePoint = event->pos();
+            if (QListView::LeftToRight == flow()) {
+                horizontalScrollBar()->setValue(horizontalOffset() + relativePos.x());
+            } else {
+                verticalScrollBar()->setValue(verticalOffset() + relativePos.y());
+            }
+        } else if ((qAbs(deltaEnd) > m_Private->m_Threshold)) {
+            if (NULL != m_Private->m_Timer) {
+                m_Private->m_Timer->stop();
+            }
+            emit onPressIndexChanged(QModelIndex());
+            if (isVisible()) {
+                update();
+            }
+            m_Private->m_Filter = true;
+            m_Private->m_StartMovePoint = event->pos();
+            if (QListView::LeftToRight == flow()) {
+                if (relativePos.x() > 0) {
+                    horizontalScrollBar()->setValue(horizontalOffset() + relativePos.x() - m_Private->m_Threshold);
+                } else {
+                    horizontalScrollBar()->setValue(horizontalOffset() + relativePos.x() + m_Private->m_Threshold);
+                }
+            } else {
+                if (relativePos.y() > 0) {
+                    verticalScrollBar()->setValue(verticalOffset() + relativePos.y() - m_Private->m_Threshold);
+                } else {
+                    verticalScrollBar()->setValue(verticalOffset() + relativePos.y() + m_Private->m_Threshold);
+                }
+            }
+        }
+    }
+    QListView::mouseReleaseEvent(event);
 }
-void MyModelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
-{
-    painter->setFont(QFont(QString(), 22));
 
-    QVariant variant = index.data(Qt::UserRole + 1);
-    MyData data = variant.value<MyData>();
+void CustomListView::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (!m_Private->m_LongPressFilter) {
+        if (NULL != m_Private->m_Timer) {
+            m_Private->m_Timer->stop();
+        }
+        if (!m_Private->m_Filter) {
+            QModelIndex modelIndex = indexAt(event->pos());
+            if (modelIndex.isValid()) {
+                emit listViewItemRelease(modelIndex.row());
+            }
+        }
+    }
+    emit onPressIndexChanged(QModelIndex());
+    if (isVisible()) {
+        update();
+    }
+    m_Private->m_Filter = false;
+    emit listViewRelease();
+    QListView::mouseReleaseEvent(event);
+}
 
-    painter->drawPixmap(20,option.rect.y()+10,QPixmap(data.picUrl));
-    painter->drawText(200,option.rect.y()+60,data.titleText);
-    painter->drawText(300,option.rect.y()+60,data.detailText);
-    //painter->drawText(option.rect, Qt::AlignCenter, QObject::tr(variant.m_Text.toLocal8Bit().constData()));
-}
-void MyModelDelegate::onCurrentIndexChange(const QModelIndex &index)
+void CustomListView::onTimeout()
 {
-    currentIndex = index;
+    m_Private->m_LongPressFilter = true;
+    QModelIndex modelIndex = indexAt(m_Private->m_StartMovePoint);
+    if (modelIndex.isValid()) {
+        emit listViewItemLongPress(modelIndex.row());
+    }
 }
-QSize MyModelDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+
+CustomListViewPrivate::CustomListViewPrivate(CustomListView *parent)
+    : m_Parent(parent)
 {
-    Q_UNUSED(index)
-    return QSize(option.rect.width(), 120);
+    m_StartMovePoint = QPoint(0, 0);
+    m_Threshold = 10;
+    m_Filter = false;
+    m_LongPressFilter = false;
+    m_Timer = NULL;
 }
-#endif
+
+CustomListViewPrivate::~CustomListViewPrivate()
+{
+}
+
+void CustomListViewPrivate::initializeTimer()
+{
+    if (NULL == m_Timer) {
+        m_Timer = new QTimer(m_Parent);
+        m_Timer->setSingleShot(true);
+        m_Timer->setInterval(1000);
+        QObject::connect(m_Timer,  SIGNAL(timeout()),
+                         m_Parent, SLOT(onTimeout()));
+    }
+}

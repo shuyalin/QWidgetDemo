@@ -15,8 +15,7 @@ void CustomScrollArea::mouseMoveEvent(QMouseEvent *event)
             wheelEvent(&e);
             lastY = event->y();
         }
-        //QScrollArea::mouseMoveEvent(event);
-    QListView::mouseMoveEvent(event);
+        QScrollArea::mouseMoveEvent(event);
 }
 void CustomScrollArea::mousePressEvent(QMouseEvent *event)
 {

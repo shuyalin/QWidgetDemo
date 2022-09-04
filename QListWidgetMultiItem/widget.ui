@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1617</width>
+    <height>587</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QListWidget" name="listWidget">
+     <property name="minimumSize">
+      <size>
+       <width>4</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	background-color:&quot;transparent&quot;;
+	spacing:16pt;
+	padding-left:142px;
+	padding-right:137px;
+	  font-family:&quot;Roboto-Bold&quot;;
+	  font-size:28pt;
+
+QListWidget::item{
+      background-color: rgb(255, 255 ,255);
+	  width:400;
+	  height:96;
+      border-radius:15px;
+	  background-repeat:no-repeat;
+      background-position:right;
+	  padding-left:31px;
+    color:rgb(72, 45 ,45);
+  }
+</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

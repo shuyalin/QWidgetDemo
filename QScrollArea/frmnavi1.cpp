@@ -5,11 +5,9 @@ FrmNavi1::FrmNavi1(QWidget *parent):QWidget(parent)
     vLayout = new QVBoxLayout(this);
     vLayout->setSpacing(0);
     vLayout->setMargin(0);
-    vLayout->setContentsMargins(50,0,50,100);
+    vLayout->setContentsMargins(0,0,0,0);
     widgetOne = new QWidget(this);
     widgetTwo = new QWidget(this);
-    //widgetTwo->resize(777,51);
-    //widgetOne->resize(777,51);
     widgetOne->setVisible(true);
     widgetTwo->setVisible(false);
     vLayout->addWidget(widgetOne);
@@ -37,6 +35,8 @@ FrmNavi1::FrmNavi1(QWidget *parent):QWidget(parent)
     labThree->setAlignment(Qt::AlignHCenter);
     labThree->setFixedSize(50,50);
     labThree->setText("hello");
+    labThree->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    labThree->setStyleSheet("font-size:22px;");
     hLayout1->addWidget(labThree);
     setProperty("expand","Off");
     connect(btnOne,SIGNAL(clicked(bool)),this,SLOT(expandArea()));
