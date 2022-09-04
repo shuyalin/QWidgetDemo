@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /********************************************************************************
 ** Form generated from reading UI file 'frmnavi.ui'
 **
@@ -124,3 +125,5 @@ namespace Ui {
 QT_END_NAMESPACE
 
 #endif // UI_FRMNAVI_H
+=======
+>>>>>>> Stashed changes

@@ -1,6 +1,6 @@
 #include "frmnavi.h"
 #include "ui_frmnavi.h"
-
+#include <QDebug>
 frmNavi::frmNavi(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::frmNavi)
@@ -42,4 +42,3 @@ void frmNavi::hideExpand()
 {
     ui->widget_3->setVisible(false);
 }
-

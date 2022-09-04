@@ -27,8 +27,12 @@ private:
     frmNavi *navi;
     QScrollArea *area;
     CustomScrollArea *customArea;
+<<<<<<< HEAD
     QWidget *widget;
     int lastY;
+=======
+    QWidget *scrollAreaWidgetContents;
+>>>>>>> 4b0b8cb071647bdbab49f7548eef3b0269cdb99f
 };
 
 #endif // WIDGET_H

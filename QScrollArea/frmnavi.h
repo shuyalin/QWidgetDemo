@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QPixmap>
-
+#include <QMouseEvent>
 namespace Ui {
 class frmNavi;
 }

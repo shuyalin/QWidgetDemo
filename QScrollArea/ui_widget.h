@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /********************************************************************************
 ** Form generated from reading UI file 'widget.ui'
 **
@@ -155,3 +156,5 @@ namespace Ui {
 QT_END_NAMESPACE
 
 #endif // UI_WIDGET_H
+=======
+>>>>>>> Stashed changes

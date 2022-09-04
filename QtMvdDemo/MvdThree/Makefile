@@ -242,7 +242,6 @@ DIST          = /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -448,7 +447,6 @@ Makefile: MvdThree.pro /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.con
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/qt_config.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/toolchain.prf \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -633,7 +631,6 @@ Makefile: MvdThree.pro /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.con
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/qt_config.prf:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/toolchain.prf:
 /home/ckxl/Qt5.9.0/5.9/gcc_64/mkspecs/features/default_pre.prf:
@@ -857,11 +854,20 @@ moc_widget.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QList \
+		CustomItemDelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		CustomScrollBar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
 		widgetwindow.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItem \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qstandarditemmodel.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
 		customscrollbar.h \
 		widget.h \
 		moc_predefs.h \
@@ -1114,6 +1120,15 @@ moc_widgetwindow.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QWidget \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QList \
+		CustomItemDelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		CustomScrollBar.h \
 		customscrollbar.h \
 		widgetwindow.h \
 		moc_predefs.h \
@@ -1460,6 +1475,17 @@ moc_customlistview.cpp: /home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QListVie
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QList \
+		CustomItemDelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		CustomScrollBar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
 		customlistview.h \
 		moc_predefs.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/bin/moc
@@ -1606,11 +1632,20 @@ main.o: main.cpp widget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QList \
+		CustomItemDelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		CustomScrollBar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
 		widgetwindow.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItem \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qstandarditemmodel.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
 		customscrollbar.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
@@ -1743,28 +1778,22 @@ widget.o: widget.cpp widget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QList \
+		CustomItemDelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		CustomScrollBar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
 		widgetwindow.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItem \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qstandarditemmodel.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
 		customscrollbar.h \
-		ui_widget.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QVariant \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QAction \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qaction.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qactiongroup.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QApplication \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qapplication.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qcoreapplication.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qeventloop.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QButtonGroup \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qbuttongroup.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QHeaderView \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qheaderview.h
+		ui_widget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o widget.cpp
 
 CustomItemDelegate.o: CustomItemDelegate.cpp CustomItemDelegate.h \
@@ -2017,6 +2046,15 @@ widgetwindow.o: widgetwindow.cpp widgetwindow.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QList \
+		CustomItemDelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		CustomScrollBar.h \
 		customscrollbar.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QStandardItemModel \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QDebug \
@@ -2029,7 +2067,8 @@ widgetwindow.o: widgetwindow.cpp widgetwindow.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qeventloop.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qguiapplication.h \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qinputmethod.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QFile
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widgetwindow.o widgetwindow.cpp
 
 customscrollbar.o: customscrollbar.cpp customscrollbar.h \
@@ -2379,6 +2418,17 @@ customlistview.o: customlistview.cpp customlistview.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QScopedPointer \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QList \
+		CustomItemDelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QItemDelegate \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qitemdelegate.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QPainter \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpainter.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qtextoption.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/qpen.h \
+		CustomScrollBar.h \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
+		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
 		AutoConnect.h \
 		UserInterfaceUtility.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QObject \
@@ -2391,8 +2441,6 @@ customlistview.o: customlistview.cpp customlistview.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QString \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QEvent \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtGui/QMouseEvent \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/QScrollBar \
-		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtWidgets/qscrollbar.h \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QPoint \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/QTimer \
 		/home/ckxl/Qt5.9.0/5.9/gcc_64/include/QtCore/qtimer.h \

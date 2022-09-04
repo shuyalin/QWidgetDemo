@@ -3,13 +3,9 @@
 
 #include <QListView>
 #include <QScopedPointer>
-#include <QList>
-#include <CustomItemDelegate.h>
-#include <QPainter>
-#include "CustomScrollBar.h"
-//#include <QMetaType>
+
 class CustomListViewPrivate;
-class CustomListView:public QListView
+class CustomListView : public QListView
 {
     Q_OBJECT
     Q_DISABLE_COPY(CustomListView)
@@ -29,7 +25,6 @@ signals:
     void listViewItemRelease(const int index);
     void listViewItemLongPress(const int index);
     void listViewRelease();
-    void listViewPress();
 private slots:
     void onTimeout();
 private:
